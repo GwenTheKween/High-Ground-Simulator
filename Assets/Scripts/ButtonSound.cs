@@ -26,12 +26,12 @@ public class ButtonSound : MonoBehaviour {
             stage--;
             for (i = 0;i<128; i++)
             {
-                val = Mathf.Sin(freq * i * i / 128);
+                val = VolumeScript.sfx * Mathf.Sin(freq * i * i / 128);
                 for (j = 0; j < channel; j++) data[channel * i + j] = val;
             }
             for(i = 128; i <data.Length / channel; i++)
             {
-                val = Mathf.Sin(freq * i);
+                val = VolumeScript.sfx * Mathf.Sin(freq * i);
                 for (j = 0; j < channel; j++) data[channel * i + j] = val;
             }
         }
@@ -40,7 +40,7 @@ public class ButtonSound : MonoBehaviour {
             float tmp =  channel / ( 2 * data.Length);
             for (i = 0; i < data.Length / channel; i++)
             {
-                val = Mathf.Sin(freq*i*(1-tmp*i));
+                val = VolumeScript.sfx * Mathf.Sin(freq*i*(1-tmp*i));
                 for(j = 0; j<channel; j++)
                 {
                     data[channel * i + j] = val;
@@ -53,7 +53,7 @@ public class ButtonSound : MonoBehaviour {
             float tmp =  channel / ( 2 * data.Length);
             for (i = 0; i < data.Length / channel; i++)
             {
-                val = Mathf.Sin(freq * i * (0.5f - tmp*i));
+                val = VolumeScript.sfx * Mathf.Sin(freq * i * (0.5f - tmp*i));
                 for (j = 0; j < channel; j++)
                 {
                     data[channel * i + j] = val;
