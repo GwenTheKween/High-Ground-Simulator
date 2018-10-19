@@ -289,7 +289,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 0.1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2916,6 +2916,7 @@ GameObject:
   - component: {fileID: 1526873370}
   - component: {fileID: 1526873369}
   - component: {fileID: 1526873371}
+  - component: {fileID: 1526873372}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -3070,6 +3071,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1526873372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1526873367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6624f20dc3427184b8216d1861b96e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1554145255
 GameObject:
   m_ObjectHideFlags: 0
@@ -4723,7 +4735,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.5
-  m_Text: Volume efeitos sonoros
+  m_Text: Volume Musica
 --- !u!222 &2124064365
 CanvasRenderer:
   m_ObjectHideFlags: 0
