@@ -25,6 +25,12 @@ public class ControleTeclado : MonoBehaviour {
 			rb.position.y,
 			Mathf.Clamp (rb.position.z, 10, 489)
 		);
+		
+		var rZ = Input.GetAxis("Horizontal_2");
+        var rX = Input.GetAxis("Vertical_2");
+		var direction = new Vector3(-rX, 0, rZ);
+		if(direction != Vector3.zero)
+			rb.transform.forward = direction;
 	
 	}
 }

@@ -65,6 +65,9 @@ public class ControleXBox : MonoBehaviour {
 		// Mira no analógico direito
 		var rightX = XCI.GetAxis(XboxAxis.LeftStickX, controller);
         var rightY = XCI.GetAxis(XboxAxis.LeftStickY, controller);
+		var direction = new Vector3(-rightY, 0, rightX);
+		if(direction != Vector3.zero)
+			rb.transform.forward = direction;
 		
 		// Invulnerabilidade
 		if(XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetButtonDown(XboxButton.RightBumper, controller)){
