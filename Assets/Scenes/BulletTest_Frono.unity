@@ -159,7 +159,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &76357793
 MonoBehaviour:
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b027599ed4400aa41b40a2c7144321b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
   bullet: {fileID: 0}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
@@ -224,7 +225,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 76357790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 369.6, y: 34.2, z: 107.7}
+  m_LocalPosition: {x: 369.6, y: 34.2, z: 18}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
@@ -242,6 +243,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 2
+  deadzone_leftAnalog: 0.1
+  deadzone_rightAnalog: 0.1
+  deadzone_trigger: 0.1
+  moveSpeed: 100
+  bullet: {fileID: 0}
+  bulletColor: {r: 0, g: 0, b: 0, a: 0}
+  shotDelay: 1
 --- !u!4 &87176577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: d148bd46a5a4c4e4d96a7c02442100fc,
@@ -731,7 +739,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &993664922
 MonoBehaviour:
@@ -744,6 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b027599ed4400aa41b40a2c7144321b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
   bullet: {fileID: 0}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
@@ -814,6 +823,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 4
+  deadzone_leftAnalog: 0.1
+  deadzone_rightAnalog: 0.1
+  deadzone_trigger: 0.1
+  moveSpeed: 100
+  bullet: {fileID: 0}
+  bulletColor: {r: 0, g: 0, b: 0, a: 0}
+  shotDelay: 1
 --- !u!1001 &1020447844
 Prefab:
   m_ObjectHideFlags: 0
@@ -911,6 +927,11 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 54644370324053708, guid: c051a3249013ac746874a60fe41789cb,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114181618210963866, guid: c051a3249013ac746874a60fe41789cb, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c051a3249013ac746874a60fe41789cb, type: 2}
@@ -990,6 +1011,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 3
+  deadzone_leftAnalog: 0.1
+  deadzone_rightAnalog: 0.1
+  deadzone_trigger: 0.1
+  moveSpeed: 100
+  bullet: {fileID: 0}
+  bulletColor: {r: 0, g: 0, b: 0, a: 0}
+  shotDelay: 1
 --- !u!114 &1405490004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,6 +1029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b027599ed4400aa41b40a2c7144321b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
   bullet: {fileID: 0}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
@@ -1021,6 +1050,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
+  deadzone_leftAnalog: 0.1
+  deadzone_rightAnalog: 0.1
+  deadzone_trigger: 0.1
+  moveSpeed: 100
+  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
+  bulletColor: {r: 0.08627451, g: 0.8784314, b: 0.13333334, a: 0}
+  shotDelay: 1
 --- !u!4 &1536255606 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 03f80303eb362fc489b3fe5bab219a93,
@@ -1584,6 +1620,21 @@ Prefab:
         type: 2}
       propertyPath: bulletColor.b
       value: 0.13465004
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960249727545688, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 54440455852495232, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54440455852495232, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aab97eff91783a41ae0d5609c821957, type: 2}
