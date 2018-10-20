@@ -6,11 +6,9 @@ public class PlayerStatus : MonoBehaviour {
 
 	private Rigidbody rb;
 	private int score;
-	private float highGroundCounter;
 	public float lowGroundZ;
 	public float highGroundZ;
 	public bool isProtected;
-	public float highGroundTime;
 
 	void Start(){
 		rb = GetComponent<Rigidbody>();
