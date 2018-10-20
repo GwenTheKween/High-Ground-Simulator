@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4492659, g: 0.4993375, b: 0.57571006, a: 1}
+  m_IndirectSpecularColor: {r: 0.4492656, g: 0.4993372, b: 0.57570946, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -124,13 +124,11 @@ GameObject:
   - component: {fileID: 76357795}
   - component: {fileID: 76357794}
   - component: {fileID: 76357793}
-  - component: {fileID: 76357797}
   - component: {fileID: 76357792}
   - component: {fileID: 76357791}
-  - component: {fileID: 76357798}
   m_Layer: 0
-  m_Name: ikis
-  m_TagString: Player
+  m_Name: clone2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,10 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b027599ed4400aa41b40a2c7144321b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
-  bullet: {fileID: 0}
-  bulletColor: {r: 0, g: 0, b: 0, a: 0}
-  shotDelay: 1
+  rb: {fileID: 0}
 --- !u!23 &76357794
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -232,39 +227,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &76357797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 76357790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f605744e7eb02f5429b91b991a00b47d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: 2
-  deadzone_leftAnalog: 0.1
-  deadzone_rightAnalog: 0.1
-  deadzone_trigger: 0.1
-  moveSpeed: 100
-  bullet: {fileID: 0}
-  bulletColor: {r: 0, g: 0, b: 0, a: 0}
-  shotDelay: 1
---- !u!114 &76357798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 76357790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  score: 0
-  lowGroundZ: 50
 --- !u!4 &87176577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: d148bd46a5a4c4e4d96a7c02442100fc,
@@ -436,7 +398,7 @@ Transform:
   m_LocalScale: {x: 862.1929, y: 93.490425, z: 879.3288}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &483278195 stripped
 Transform:
@@ -593,6 +555,7 @@ Transform:
   - {fileID: 1536255606}
   - {fileID: 483278195}
   - {fileID: 354648595}
+  - {fileID: 2084933295}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -721,11 +684,9 @@ GameObject:
   - component: {fileID: 993664922}
   - component: {fileID: 993664921}
   - component: {fileID: 993664920}
-  - component: {fileID: 993664926}
-  - component: {fileID: 993664927}
   m_Layer: 0
-  m_Name: ibir
-  m_TagString: Player
+  m_Name: clone4
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -768,10 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b027599ed4400aa41b40a2c7144321b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
-  bullet: {fileID: 0}
-  bulletColor: {r: 0, g: 0, b: 0, a: 0}
-  shotDelay: 1
+  rb: {fileID: 0}
 --- !u!23 &993664923
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -825,41 +783,8 @@ Transform:
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &993664926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 993664919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f605744e7eb02f5429b91b991a00b47d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: 4
-  deadzone_leftAnalog: 0.1
-  deadzone_rightAnalog: 0.1
-  deadzone_trigger: 0.1
-  moveSpeed: 100
-  bullet: {fileID: 0}
-  bulletColor: {r: 0, g: 0, b: 0, a: 0}
-  shotDelay: 1
---- !u!114 &993664927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 993664919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  score: 0
-  lowGroundZ: 50
 --- !u!1001 &1020447844
 Prefab:
   m_ObjectHideFlags: 0
@@ -919,7 +844,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 611907316}
     m_Modifications:
     - target: {fileID: 4589853193165520, guid: c051a3249013ac746874a60fe41789cb, type: 2}
       propertyPath: m_LocalPosition.x
@@ -951,14 +876,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4589853193165520, guid: c051a3249013ac746874a60fe41789cb, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1676163755318030, guid: c051a3249013ac746874a60fe41789cb, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114181618210963866, guid: c051a3249013ac746874a60fe41789cb, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c051a3249013ac746874a60fe41789cb, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1230478995
@@ -1019,97 +939,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1405489998 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1676163755318030, guid: c051a3249013ac746874a60fe41789cb,
-    type: 2}
-  m_PrefabInternal: {fileID: 1195897022}
---- !u!114 &1405490001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1405489998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f605744e7eb02f5429b91b991a00b47d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: 3
-  deadzone_leftAnalog: 0.1
-  deadzone_rightAnalog: 0.1
-  deadzone_trigger: 0.1
-  moveSpeed: 100
-  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
-  bulletColor: {r: 0, g: 0, b: 0, a: 0}
-  shotDelay: 1
---- !u!114 &1405490004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1405489998}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b027599ed4400aa41b40a2c7144321b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 100
-  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
-  bulletColor: {r: 0, g: 0, b: 0, a: 0}
-  shotDelay: 1
---- !u!114 &1405490006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1405489998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  score: 0
-  lowGroundZ: 50
---- !u!1 &1513503552 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1006140456906878, guid: 9aab97eff91783a41ae0d5609c821957,
-    type: 2}
-  m_PrefabInternal: {fileID: 2136436380}
---- !u!114 &1513503553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1513503552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  score: 0
-  lowGroundZ: 50
---- !u!114 &1513503559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1513503552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f605744e7eb02f5429b91b991a00b47d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: 1
-  deadzone_leftAnalog: 0.1
-  deadzone_rightAnalog: 0.1
-  deadzone_trigger: 0.1
-  moveSpeed: 100
-  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
-  bulletColor: {r: 0, g: 0, b: 0, a: 0}
-  shotDelay: 1
 --- !u!4 &1536255606 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 03f80303eb362fc489b3fe5bab219a93,
@@ -1471,6 +1300,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &2084933295 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4589853193165520, guid: c051a3249013ac746874a60fe41789cb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1195897022}
 --- !u!1 &2085579931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,7 +1427,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2136436380
 Prefab:
@@ -1632,17 +1466,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4166118659577362, guid: 9aab97eff91783a41ae0d5609c821957, type: 2}
       propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114960249727545688, guid: 9aab97eff91783a41ae0d5609c821957,
-        type: 2}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c,
-        type: 2}
-    - target: {fileID: 1006140456906878, guid: 9aab97eff91783a41ae0d5609c821957, type: 2}
-      propertyPath: m_TagString
-      value: Player
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aab97eff91783a41ae0d5609c821957, type: 2}
