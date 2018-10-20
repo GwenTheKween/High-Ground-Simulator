@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 0}
+  bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
 --- !u!23 &76357794
 MeshRenderer:
@@ -744,6 +745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 0}
+  bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
 --- !u!23 &993664923
 MeshRenderer:
@@ -1000,6 +1002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 0}
+  bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
 --- !u!1 &1513503552 stripped
 GameObject:
@@ -1560,12 +1563,27 @@ Prefab:
         type: 2}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 1325319228096556, guid: d047b8d0af06c4f46ab18cc21ce3c196,
+      objectReference: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c,
         type: 2}
     - target: {fileID: 114960249727545688, guid: 9aab97eff91783a41ae0d5609c821957,
         type: 2}
       propertyPath: shotDelay
-      value: 0.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960249727545688, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bulletColor.r
+      value: 0.086908154
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960249727545688, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bulletColor.g
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960249727545688, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bulletColor.b
+      value: 0.13465004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aab97eff91783a41ae0d5609c821957, type: 2}
