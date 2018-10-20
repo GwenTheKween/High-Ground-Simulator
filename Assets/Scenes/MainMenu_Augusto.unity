@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1526873367}
+  menu: 1
 --- !u!114 &43277252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,9 +288,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2133173811}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 0.1
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.1
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2584,6 +2585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1526873367}
+  menu: 0
 --- !u!114 &1259482669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2990,7 +2992,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128

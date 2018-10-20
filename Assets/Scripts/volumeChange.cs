@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class volumeChange : MonoBehaviour {
     public GameObject background;
+    public bool menu;
 
     private Slider sl;
     private AudioSource background_AS;
@@ -12,6 +13,7 @@ public class volumeChange : MonoBehaviour {
     {
         sl = GetComponent<Slider>();
         background_AS = background.GetComponent<AudioSource>();
+        background_AS.volume = sl.value;
     }
 	public void changeVolume(bool which)
     {
