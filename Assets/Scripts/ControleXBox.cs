@@ -7,11 +7,20 @@ public class ControleXBox : MonoBehaviour {
 
 	private Rigidbody rb;
 	public XboxController controller;
+	public float deadzone_leftAnalog = 0.1f;
+	public float deadzone_rightAnalog = 0.1f;
+	public float deadzone_trigger = 0.1f;
+	private float timeToShoot;
+	public float moveSpeed = 100f;
+	public GameObject bullet;
+	public Color bulletColor;
+	public float shotDelay = 1f;
 	
 	private static bool didQueryNumOfCtrlrs = false;
 	
 	void Start(){
 		
+		timeToShoot = 0;
 		rb = GetComponent<Rigidbody>();
 		
 		if(!didQueryNumOfCtrlrs){
@@ -47,40 +56,79 @@ public class ControleXBox : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		// Mover personagem
+		Move();
 		
+		// Virar personagem
+		Turn();
+
+		// Atirar
+		Shoot();
+		
+		// Granada
+		Grenade();
+
+		// Invulnerabilidade
+		Invulnerable();
+		
+	}
+
+	// Mover personagem
+	void Move(){
 		// Movimento no analógico esquerdo
 		var leftX = XCI.GetAxis(XboxAxis.LeftStickX, controller);
         var leftY = XCI.GetAxis(XboxAxis.LeftStickY, controller);
-		var movement = new Vector3(-leftY*100f, 0f, leftX*100f);
-		transform.Translate(movement*Time.deltaTime, Space.World);
-	
-		rb.position = new Vector3
-		(
-			Mathf.Clamp (rb.position.x, 70, 450),
-			rb.position.y,
-			Mathf.Clamp (rb.position.z, 10, 489)
-		);
+		var movement = new Vector3(-leftY, 0f, leftX);
+
+		if(movement.magnitude > deadzone_leftAnalog){
+			rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
 		
-		
+			rb.position = new Vector3(Mathf.Clamp (rb.position.x, 70, 450),
+										rb.position.y,
+										Mathf.Clamp (rb.position.z, 10, 489));
+		}
+	}
+
+	// Virar personagem
+	void Turn(){
 		// Mira no analógico direito
-		var rightX = XCI.GetAxis(XboxAxis.LeftStickX, controller);
-        var rightY = XCI.GetAxis(XboxAxis.LeftStickY, controller);
+		var rightX = XCI.GetAxis(XboxAxis.RightStickX, controller);
+        var rightY = XCI.GetAxis(XboxAxis.RightStickY, controller);
 		var direction = new Vector3(-rightY, 0, rightX);
-		if(direction != Vector3.zero)
+		if(direction.magnitude > deadzone_rightAnalog)
 			rb.transform.forward = direction;
-		
-		// Invulnerabilidade
+	}
+
+	// Atirar com a arma
+	void Shoot(){
+		// Tempo entre tiros
+		if(timeToShoot > 0) 
+			timeToShoot -= Time.deltaTime;
+
+		// Atirar
+		// O quanto o trigger direito foi apertado
+		if(XCI.GetAxis(XboxAxis.RightTrigger, controller) > deadzone_trigger && timeToShoot <= 0){
+			var shot = Instantiate(bullet, transform.position, transform.rotation);
+			shot.GetComponent<Bullet>().SetParentName(this.name);
+			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
+			timeToShoot = shotDelay;
+		}
+	}
+
+	// Arremessar Granada
+	void Grenade(){
+		// O quanto o trigger esquerdo foi apertado
+		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToShoot <= 0){
+
+		}
+	}
+
+	// Invulnerabilidade
+	void Invulnerable(){
+		// Bumpers
 		if(XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetButtonDown(XboxButton.RightBumper, controller)){
 			
 		}
-		
-		// Tiro Laser 
-		// O quanto o trigger direito foi apertado
-		// XCI.GetAxis(XboxAxis.RightTrigger, controller) 
-		
-		// Granada
-		// O quanto o trigger esquerdo foi apertado
-		// XCI.GetAxis(XboxAxis.LeftTrigger, controller)
-		
 	}
 }
