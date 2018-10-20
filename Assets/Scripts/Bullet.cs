@@ -6,10 +6,12 @@ public class Bullet : MonoBehaviour {
 
 	private Rigidbody rb;
 	private string parentName;
-	public float speed = 500;
+	public float speed = 500f;
+	public float size = 6f;
 	
 	void Start(){
 		rb = GetComponent<Rigidbody>();
+		transform.localScale = new Vector3(size,size,size);
 	}
 
 	// Mover a bala
