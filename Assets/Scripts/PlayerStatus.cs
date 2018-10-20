@@ -6,9 +6,11 @@ public class PlayerStatus : MonoBehaviour {
 
 	private Rigidbody rb;
 	private int score;
+	public string name;
 	public float lowGroundZ;
 	public float highGroundZ;
 	public bool isProtected;
+	public int deathPenalty = 10;
 
 	void Start(){
 		rb = GetComponent<Rigidbody>();
@@ -18,6 +20,7 @@ public class PlayerStatus : MonoBehaviour {
 	
 	public void IncreaseScore(int value = 1){
 		score += value;
+		print(name + ": " + score);
 	}
 
 	public int getScore(){
@@ -27,7 +30,7 @@ public class PlayerStatus : MonoBehaviour {
 	public void Death(){
 		if(transform.position.z > lowGroundZ && !isProtected)
 		{
-			score -= 1;
+			score -= deathPenalty;
 			if (score < 0)
 				score = 0;
 			rb.MovePosition(new Vector3(rb.position.x,rb.position.y,15));
