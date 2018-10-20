@@ -66,7 +66,6 @@ public class ButtonSound : MonoBehaviour {
     public void play()
     {
         stage = 3;
-        while (stage > 0) Debug.Log(stage);
-        Debug.Log(stage);
+        while (stage > 0) ;
     }
 }
