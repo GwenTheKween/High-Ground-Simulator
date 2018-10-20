@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54818834691039090}
   - component: {fileID: 114067256474490176}
   m_Layer: 0
-  m_Name: BulletPlayer
+  m_Name: BulletTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
