@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114868657679556250}
   - component: {fileID: 82116225141797982}
   - component: {fileID: 82026615339921228}
+  - component: {fileID: 114555493239291064}
   m_Layer: 0
   m_Name: dort
   m_TagString: Player
@@ -306,6 +307,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114555493239291064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620853118555944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowGroundZ: 50
+  highGroundZ: 440
+  isProtected: 0
+  DeathSFX: {fileID: 82026615339921228}
 --- !u!114 &114560017652621918
 MonoBehaviour:
   m_ObjectHideFlags: 1

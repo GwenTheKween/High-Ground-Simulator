@@ -266,6 +266,7 @@ MonoBehaviour:
   lowGroundZ: 50
   highGroundZ: 440
   isProtected: 0
+  DeathSFX: {fileID: 0}
 --- !u!4 &87176577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: d148bd46a5a4c4e4d96a7c02442100fc,
@@ -862,6 +863,7 @@ MonoBehaviour:
   lowGroundZ: 50
   highGroundZ: 440
   isProtected: 0
+  DeathSFX: {fileID: 0}
 --- !u!1001 &1020447844
 Prefab:
   m_ObjectHideFlags: 0
@@ -962,6 +964,18 @@ Prefab:
     - target: {fileID: 4647935157789168, guid: c051a3249013ac746874a60fe41789cb, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647935157789168, guid: c051a3249013ac746874a60fe41789cb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 90.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647935157789168, guid: c051a3249013ac746874a60fe41789cb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 115.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647935157789168, guid: c051a3249013ac746874a60fe41789cb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 259.8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114181618210963866, guid: c051a3249013ac746874a60fe41789cb, type: 2}
