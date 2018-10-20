@@ -25,7 +25,8 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.name != parentName){
 			if(other.gameObject.tag == "Player"){
-				Destroy(other.gameObject); // usar método Death quando existir
+				//Destroy(other.gameObject); // usar método Death quando existir
+				other.gameObject.GetComponent<PlayerStatus>().Death();
 			}
 			Destroy(this.gameObject);
 		}
