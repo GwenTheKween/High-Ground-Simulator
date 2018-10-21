@@ -9,10 +9,13 @@ public class PlayerStatus : MonoBehaviour {
 	public float lowGroundZ;
 	public float highGroundZ;
 	public bool isProtected;
-    public AudioSource DeathSFX;
+    public GameObject Teleport;
+
+    private Transform here;
 
 	void Start(){
 		rb = GetComponent<Rigidbody>();
+        here = GetComponent<Transform>();
 		isProtected = false;
 		score = 0;
 	}
@@ -32,7 +35,7 @@ public class PlayerStatus : MonoBehaviour {
 			if (score < 0)
 				score = 0;
 			rb.MovePosition(new Vector3(rb.position.x,rb.position.y,15));
-            DeathSFX.Play();
+            Instantiate(Teleport, here.position, Quaternion.identity);
 		}
 	}
 
