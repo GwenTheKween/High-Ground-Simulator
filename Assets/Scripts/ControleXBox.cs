@@ -15,6 +15,7 @@ public class ControleXBox : MonoBehaviour {
 	public GameObject bullet;
 	public Color bulletColor;
 	public float shotDelay = 1f;
+    public AudioSource shootSFX;
 	
 	private static bool didQueryNumOfCtrlrs = false;
 	
@@ -113,6 +114,7 @@ public class ControleXBox : MonoBehaviour {
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			timeToShoot = shotDelay;
+            shootSFX.Play();
 		}
 	}
 
