@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class BulletExplosion : MonoBehaviour {
 
-	private Rigidbody rb;
 	public float size = 10f;
 
 	void Start(){
-		rb = GetComponent<Rigidbody>();
 		transform.localScale = new Vector3(size,size,size);
 	}
 

@@ -11,10 +11,13 @@ public class ControleXBox : MonoBehaviour {
 	public float deadzone_rightAnalog = 0.1f;
 	public float deadzone_trigger = 0.1f;
 	private float timeToShoot;
+	private float timeToShoot2;
 	public float moveSpeed = 100f;
 	public GameObject bullet;
+	public GameObject bomb;
 	public Color bulletColor;
 	public float shotDelay = 1f;
+	public float shotDelay2 = 3f;
     public AudioSource shootSFX;
 	
 	private static bool didQueryNumOfCtrlrs = false;
@@ -23,6 +26,8 @@ public class ControleXBox : MonoBehaviour {
 		
 		timeToShoot = 0;
 		rb = GetComponent<Rigidbody>();
+
+		timeToShoot2 = 0;
 		
 		if(!didQueryNumOfCtrlrs){
 			
@@ -120,9 +125,15 @@ public class ControleXBox : MonoBehaviour {
 
 	// Arremessar Granada
 	void Grenade(){
-		// O quanto o trigger esquerdo foi apertado
-		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToShoot <= 0){
+		if(timeToShoot2 > 0) 
+			timeToShoot2 -= Time.deltaTime;
 
+		// O quanto o trigger esquerdo foi apertado
+		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToShoot2 <= 0){
+			var shot = Instantiate(bomb, transform.position, transform.rotation);
+			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
+			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
+			timeToShoot2 = shotDelay2;
 		}
 	}
 
