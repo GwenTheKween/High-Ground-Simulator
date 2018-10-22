@@ -133,4 +133,9 @@ public class ControleXBox : MonoBehaviour {
 			
 		}
 	}
+
+    public void setController(XboxController cont)
+    {
+        controller = cont;
+    }
 }

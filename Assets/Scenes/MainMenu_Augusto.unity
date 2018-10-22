@@ -157,6 +157,11 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114868657679556250, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aab97eff91783a41ae0d5609c821957, type: 2}
   m_IsPrefabAsset: 0
@@ -2168,6 +2173,7 @@ MonoBehaviour:
   - {fileID: 8400000, guid: 2a149a5b3eb0fd64194da95ca926dbbe, type: 2}
   - {fileID: 8400000, guid: 6361ba8b00744a24289182cb8eff0d64, type: 2}
   - {fileID: 8400000, guid: ee000f637756740428e0ca2d72a6be07, type: 2}
+  playerNum: 0
 --- !u!1 &971293048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,6 +2664,7 @@ MonoBehaviour:
   - {fileID: 8400000, guid: 2a149a5b3eb0fd64194da95ca926dbbe, type: 2}
   - {fileID: 8400000, guid: 6361ba8b00744a24289182cb8eff0d64, type: 2}
   - {fileID: 8400000, guid: ee000f637756740428e0ca2d72a6be07, type: 2}
+  playerNum: 0
 --- !u!1 &1047607295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,9 +3308,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 82206544897765578, guid: c051a3249013ac746874a60fe41789cb,
+    - target: {fileID: 114646371858843414, guid: c051a3249013ac746874a60fe41789cb,
         type: 2}
-      propertyPath: m_PlayOnAwake
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3580,6 +3587,7 @@ MonoBehaviour:
   - {fileID: 8400000, guid: 2a149a5b3eb0fd64194da95ca926dbbe, type: 2}
   - {fileID: 8400000, guid: 6361ba8b00744a24289182cb8eff0d64, type: 2}
   - {fileID: 8400000, guid: ee000f637756740428e0ca2d72a6be07, type: 2}
+  playerNum: 0
 --- !u!1001 &1361800960
 Prefab:
   m_ObjectHideFlags: 0
@@ -3619,9 +3627,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 82240700228474234, guid: 35e233a585b06af4d8bd600f44c98886,
+    - target: {fileID: 114235785909137994, guid: 35e233a585b06af4d8bd600f44c98886,
         type: 2}
-      propertyPath: m_PlayOnAwake
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5620,9 +5628,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 82327841130675668, guid: 9ad8909e0a95bf940838c6ffaa0ca499,
+    - target: {fileID: 114146755217593882, guid: 9ad8909e0a95bf940838c6ffaa0ca499,
         type: 2}
-      propertyPath: m_PlayOnAwake
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6044,6 +6052,7 @@ MonoBehaviour:
   - {fileID: 8400000, guid: 2a149a5b3eb0fd64194da95ca926dbbe, type: 2}
   - {fileID: 8400000, guid: 6361ba8b00744a24289182cb8eff0d64, type: 2}
   - {fileID: 8400000, guid: ee000f637756740428e0ca2d72a6be07, type: 2}
+  playerNum: 0
 --- !u!1 &1927870108
 GameObject:
   m_ObjectHideFlags: 0

@@ -217,7 +217,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853106411114876}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f605744e7eb02f5429b91b991a00b47d, type: 3}
   m_Name: 
@@ -227,7 +227,7 @@ MonoBehaviour:
   deadzone_rightAnalog: 0.1
   deadzone_trigger: 0.1
   moveSpeed: 100
-  bullet: {fileID: 0}
+  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
   shootSFX: {fileID: 82954936875796996}
