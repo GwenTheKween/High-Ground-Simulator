@@ -61,7 +61,8 @@ public class ControleTeclado : MonoBehaviour {
 		// Atirar
 		if(Input.GetButtonDown("Fire1") && timeToShoot <= 0){
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
-			shot.GetComponent<Bullet>().SetParentName(this.name);
+//			shot.GetComponent<Bullet>().SetParentName(this.name);
+			shot.GetComponent<BulletBomb>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			timeToShoot = shotDelay;
 		}

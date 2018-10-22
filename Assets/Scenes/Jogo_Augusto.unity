@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4492656, g: 0.4993372, b: 0.57570946, a: 1}
+  m_IndirectSpecularColor: {r: 0.4492659, g: 0.4993375, b: 0.57571006, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -266,7 +266,7 @@ MonoBehaviour:
   lowGroundZ: 50
   highGroundZ: 440
   isProtected: 0
-  DeathSFX: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!4 &87176577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: d148bd46a5a4c4e4d96a7c02442100fc,
@@ -863,7 +863,7 @@ MonoBehaviour:
   lowGroundZ: 50
   highGroundZ: 440
   isProtected: 0
-  DeathSFX: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1001 &1020447844
 Prefab:
   m_ObjectHideFlags: 0
@@ -1584,8 +1584,25 @@ Prefab:
     - target: {fileID: 114868657679556250, guid: 9aab97eff91783a41ae0d5609c821957,
         type: 2}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114868657679556250, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6,
+        type: 2}
+    - target: {fileID: 114560017652621918, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114560017652621918, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aab97eff91783a41ae0d5609c821957, type: 2}
   m_IsPrefabAsset: 0
