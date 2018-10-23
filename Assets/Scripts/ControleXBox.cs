@@ -133,6 +133,7 @@ public class ControleXBox : MonoBehaviour {
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
+			shot.GetComponent<BulletBomb>().parentColor = bulletColor;
 			timeToShoot2 = shotDelay2;
 		}
 	}

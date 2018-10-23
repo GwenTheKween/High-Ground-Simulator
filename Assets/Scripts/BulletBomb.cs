@@ -13,6 +13,7 @@ public class BulletBomb : MonoBehaviour {
 	public float size = 10f;
 	public GameObject bomb;
 	public GameObject bulletDetector;
+	public Color parentColor;
 	
 	void Start(){
 		rb = GetComponent<Rigidbody>();
@@ -39,7 +40,7 @@ public class BulletBomb : MonoBehaviour {
 
 	public void Explode(){
 		var explode = Instantiate(bomb, transform.position, transform.rotation);
-		explode.GetComponent<MeshRenderer>().material.color = this.GetComponent<MeshRenderer>().material.color;
+		explode.GetComponent<MeshRenderer>().material.color = parentColor;
 		Destroy(this.gameObject);
 	}
 

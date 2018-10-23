@@ -119,6 +119,7 @@ MonoBehaviour:
   bomb: {fileID: 1805911928337416, guid: 515f6d1e84a04bf4388de22e197834d9, type: 2}
   bulletDetector: {fileID: 1037621135462014, guid: 13bdcf050ec3be9408d673f55d19480a,
     type: 2}
+  parentColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!135 &135111468731575716
 SphereCollider:
   m_ObjectHideFlags: 1
