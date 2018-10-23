@@ -6,13 +6,17 @@ public class ControleTeclado : MonoBehaviour {
 
 	private Rigidbody rb;
 	private float timeToShoot;
+	private float timeToShoot2;
 	public float moveSpeed = 100f;
 	public GameObject bullet;
+	public GameObject bomb;
 	public Color bulletColor;
 	public float shotDelay = 1f;
+	public float shotDelay2 = 3f;
 	
 	void Start(){
 		timeToShoot = 0;
+		timeToShoot2 = 0;
 		rb = GetComponent<Rigidbody>();
 	}
 	
@@ -27,7 +31,9 @@ public class ControleTeclado : MonoBehaviour {
 
 		// Atirar
 		Shoot();
-		
+
+		//Granadas
+		Grenade();		
 	}
 
 	// Mover personagem
@@ -61,6 +67,7 @@ public class ControleTeclado : MonoBehaviour {
 		// Atirar
 		if(Input.GetButtonDown("Fire1") && timeToShoot <= 0){
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
+//			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			timeToShoot = shotDelay;
@@ -69,7 +76,16 @@ public class ControleTeclado : MonoBehaviour {
 
 	// Arremessar Granada
 	void Grenade(){
-		
+		if(timeToShoot2 > 0) 
+			timeToShoot2 -= Time.deltaTime;
+
+		if(Input.GetButtonDown("Fire2") && timeToShoot2 <= 0){
+			var shot = Instantiate(bomb, transform.position, transform.rotation);
+			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
+			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
+			shot.GetComponent<BulletBomb>().parentColor = bulletColor;
+			timeToShoot2 = shotDelay2;
+		}	
 	}
 
 	// Invulnerabilidade
