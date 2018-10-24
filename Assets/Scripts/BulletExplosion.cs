@@ -6,8 +6,11 @@ public class BulletExplosion : MonoBehaviour {
 
 	public float size = 10f;
 
+    private AudioSource AS;
+
 	void Start(){
 		transform.localScale = new Vector3(size,size,size);
+        AS = GetComponent<AudioSource>();
 	}
 
 	// Colisão
@@ -16,6 +19,11 @@ public class BulletExplosion : MonoBehaviour {
 			other.gameObject.GetComponent<PlayerStatus>().Death();
 		}
 	}
+
+    void play()
+    {
+        AS.Play();
+    }
 
 	void KillSelf(){
 		Destroy(this.gameObject);
