@@ -152,11 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 82026615339921228, guid: 9aab97eff91783a41ae0d5609c821957,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114868657679556250, guid: 9aab97eff91783a41ae0d5609c821957,
         type: 2}
       propertyPath: m_Enabled

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStatus : MonoBehaviour {
 
 	private Rigidbody rb;
-	private int score;
+	public int score;
 	public string name;
 	public float lowGroundZ;
 	public float highGroundZ;
@@ -14,6 +14,7 @@ public class PlayerStatus : MonoBehaviour {
     public GameObject Teleport;
 
     private Transform here;
+    private PlayerHUD ScriptHUD;
 
 	void Start(){
 		rb = GetComponent<Rigidbody>();
@@ -24,7 +25,7 @@ public class PlayerStatus : MonoBehaviour {
 	
 	public void IncreaseScore(int value = 1){
 		score += value;
-		print(name + ": " + score);
+        ScriptHUD.SetPoints(score);
 	}
 
 	public int getScore(){
@@ -37,7 +38,8 @@ public class PlayerStatus : MonoBehaviour {
 			score -= deathPenalty;
 			if (score < 0)
 				score = 0;
-			rb.MovePosition(new Vector3(rb.position.x,rb.position.y,15));
+            ScriptHUD.SetPoints(score);
+            rb.MovePosition(new Vector3(rb.position.x,rb.position.y,15));
             Instantiate(Teleport, here.position, Quaternion.identity);
 		}
 	}
@@ -48,4 +50,14 @@ public class PlayerStatus : MonoBehaviour {
 		}
 		return false;
 	}
+
+    public void SetHUD(PlayerHUD hud)
+    {
+        ScriptHUD = hud;
+    }
+
+    public void SetName(string n)
+    {
+        name = n;
+    }
 }

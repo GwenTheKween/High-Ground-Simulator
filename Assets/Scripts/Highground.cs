@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Highground : MonoBehaviour {
 
-	private short[] players;
+	public short[] players;
 	private PlayerStatus[] status;
 	private short playerCount = 0;
 	private float timeToPoint;
@@ -35,6 +35,7 @@ public class Highground : MonoBehaviour {
 
 	// Player entrou no Highground
 	void OnTriggerEnter(Collider other){
+        Debug.Log("entrou");
 		if(other.gameObject.tag == "Player"){
 			var tmp = other.gameObject.GetComponent<PlayerStatus>();
 			playerCount++;

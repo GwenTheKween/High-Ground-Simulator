@@ -38,7 +38,12 @@ public class PlayerHUD : MonoBehaviour {
 		object_king.SetActive(false);
 	}
 
-	void AddPoints(int pnts){
-		points += pnts;
+	public void SetPoints(int pnts){
+		text_points.text = pnts.ToString("D7");
 	}
+
+    public void SetName(string name)
+    {
+        text_player_name.text = name;
+    }
 }

@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_number: 1
-  points: 150
+  points: 0
   color: {r: 0, g: 0.78431374, b: 0, a: 1}
   image_back_border: {fileID: 114555062785820494}
   image_king_border: {fileID: 114328086268864904}

@@ -13,8 +13,6 @@ public class PlayerSpawnCharacter : MonoBehaviour{
     // Use this for initialization
     void Start () {
         GameObject pref;
-        int i;
-        float x_pos;
         if (PlayerSelection.chars[playerNum] > 0)
         {
             //se foi escolhido algum personagem, esse jogador vai estar jogando
@@ -24,6 +22,9 @@ public class PlayerSpawnCharacter : MonoBehaviour{
                 Quaternion.identity
                 );
             pref.GetComponent<ControleXBox>().setController(controller);
+            HUD.GetComponent<PlayerHUD>().SetName((playerNum+1).ToString());
+            pref.GetComponent<PlayerStatus>().SetHUD(HUD.GetComponent<PlayerHUD>());
+            pref.GetComponent<PlayerStatus>().SetName("P" + (playerNum + 1).ToString());
         }
         else
         {// desativa o  score do jogador

@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620853118555944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 127.9, y: 17.1, z: 23.3}
+  m_LocalPosition: {x: 132.45206, y: 15.1, z: 376.1}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
@@ -222,9 +222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   lowGroundZ: 50
   highGroundZ: 440
   isProtected: 0
+  deathPenalty: 10
   Teleport: {fileID: 1971764036424386, guid: 6673586a68638d846a1762680ace63c3, type: 2}
 --- !u!114 &114560017652621918
 MonoBehaviour:
@@ -239,8 +241,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 100
   bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
+  bomb: {fileID: 0}
   bulletColor: {r: 0.086908154, g: 0.8773585, b: 0.13465004, a: 0}
   shotDelay: 1
+  shotDelay2: 3
 --- !u!114 &114868657679556250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,6 +262,8 @@ MonoBehaviour:
   deadzone_trigger: 0.1
   moveSpeed: 100
   bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
+  bomb: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6, type: 2}
   bulletColor: {r: 0.08627451, g: 0.8784314, b: 0.13333334, a: 0}
   shotDelay: 1
+  shotDelay2: 3
   shootSFX: {fileID: 82116225141797982}
