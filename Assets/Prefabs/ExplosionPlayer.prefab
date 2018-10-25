@@ -23,11 +23,11 @@ GameObject:
   - component: {fileID: 23586645724342914}
   - component: {fileID: 135793193885688766}
   - component: {fileID: 54818834691039090}
-  - component: {fileID: 114067256474490176}
-  - component: {fileID: 111073901331894314}
+  - component: {fileID: 111931061995497116}
+  - component: {fileID: 114862650548813940}
   m_Layer: 0
-  m_Name: BulletPlayer
-  m_TagString: Bullet
+  m_Name: ExplosionPlayer
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,12 +39,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805911928337416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 154, y: 120.5, z: 328}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 180}
 --- !u!23 &23586645724342914
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -60,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6524b3579d18e5c42b4edb59fef65e34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,7 +102,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!111 &111073901331894314
+--- !u!111 &111931061995497116
 Animation:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,14 +110,15 @@ Animation:
   m_GameObject: {fileID: 1805911928337416}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 58d9d5b32b6710c4ca52a80202974857, type: 2}
+  m_Animation: {fileID: 7400000, guid: e420c089ada434644b813cae67ea668b, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 58d9d5b32b6710c4ca52a80202974857, type: 2}
+  - {fileID: 0}
+  - {fileID: 7400000, guid: e420c089ada434644b813cae67ea668b, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
+  m_AnimatePhysics: 1
   m_CullingType: 0
---- !u!114 &114067256474490176
+--- !u!114 &114862650548813940
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,11 +126,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805911928337416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c520f091e2b9e64b8be91ed06bd092f, type: 3}
+  m_Script: {fileID: 11500000, guid: 033ad7b2e4e7b4c4d87fba7234e18f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 400
-  size: 6
+  size: 10
 --- !u!135 &135793193885688766
 SphereCollider:
   m_ObjectHideFlags: 1

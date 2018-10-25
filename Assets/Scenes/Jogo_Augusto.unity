@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4492656, g: 0.4993372, b: 0.57570946, a: 1}
+  m_IndirectSpecularColor: {r: 0.44926566, g: 0.49933702, b: 0.57570934, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -168,15 +168,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 76357790}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b027599ed4400aa41b40a2c7144321b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 100
   bullet: {fileID: 0}
+  bomb: {fileID: 0}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
+  shotDelay2: 5
 --- !u!23 &76357794
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -248,9 +250,11 @@ MonoBehaviour:
   deadzone_rightAnalog: 0.1
   deadzone_trigger: 0.1
   moveSpeed: 100
-  bullet: {fileID: 0}
+  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
+  bomb: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6, type: 2}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
+  shotDelay2: 3
   shootSFX: {fileID: 0}
 --- !u!114 &76357798
 MonoBehaviour:
@@ -263,10 +267,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: P2
   lowGroundZ: 50
   highGroundZ: 440
   isProtected: 0
-  DeathSFX: {fileID: 0}
+  Teleport: {fileID: 1971764036424386, guid: 6673586a68638d846a1762680ace63c3, type: 2}
+  deathPenalty: 10
 --- !u!4 &87176577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: d148bd46a5a4c4e4d96a7c02442100fc,
@@ -356,7 +362,7 @@ GameObject:
   - component: {fileID: 392458775}
   - component: {fileID: 392458774}
   m_Layer: 0
-  m_Name: SpawnCube
+  m_Name: RespawnCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,8 +778,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 100
   bullet: {fileID: 0}
+  bomb: {fileID: 0}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
+  shotDelay2: 5
 --- !u!23 &993664923
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -845,9 +853,11 @@ MonoBehaviour:
   deadzone_rightAnalog: 0.1
   deadzone_trigger: 0.1
   moveSpeed: 100
-  bullet: {fileID: 0}
+  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
+  bomb: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6, type: 2}
   bulletColor: {r: 1, g: 1, b: 1, a: 0}
   shotDelay: 1
+  shotDelay2: 3
   shootSFX: {fileID: 0}
 --- !u!114 &993664927
 MonoBehaviour:
@@ -860,10 +870,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: P4
   lowGroundZ: 50
   highGroundZ: 440
   isProtected: 0
-  DeathSFX: {fileID: 0}
+  Teleport: {fileID: 1971764036424386, guid: 6673586a68638d846a1762680ace63c3, type: 2}
+  deathPenalty: 10
 --- !u!1001 &1020447844
 Prefab:
   m_ObjectHideFlags: 0
@@ -967,7 +979,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4647935157789168, guid: c051a3249013ac746874a60fe41789cb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 90.8
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4647935157789168, guid: c051a3249013ac746874a60fe41789cb, type: 2}
       propertyPath: m_LocalPosition.x
@@ -977,10 +989,126 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 259.8
       objectReference: {fileID: 0}
+    - target: {fileID: 114646371858843414, guid: c051a3249013ac746874a60fe41789cb,
+        type: 2}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c,
+        type: 2}
+    - target: {fileID: 114646371858843414, guid: c051a3249013ac746874a60fe41789cb,
+        type: 2}
+      propertyPath: bomb
+      value: 
+      objectReference: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6,
+        type: 2}
+    - target: {fileID: 114646371858843414, guid: c051a3249013ac746874a60fe41789cb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114181618210963866, guid: c051a3249013ac746874a60fe41789cb, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c051a3249013ac746874a60fe41789cb, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1200908772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1200908777}
+  - component: {fileID: 1200908776}
+  - component: {fileID: 1200908775}
+  - component: {fileID: 1200908774}
+  - component: {fileID: 1200908773}
+  m_Layer: 0
+  m_Name: HighgroundCube
+  m_TagString: Region
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1200908773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200908772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3a109c651cf9d4fa81156eaa5c26f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointStep: 1
+  delayPoint: 1
+--- !u!65 &1200908774
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200908772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1200908775
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200908772}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1200908776
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200908772}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1200908777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200908772}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 310, y: 55, z: 490.1}
+  m_LocalScale: {x: 500, y: 300, z: 75}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1230478995
 Prefab:
   m_ObjectHideFlags: 0
@@ -1039,6 +1167,101 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1405489998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1676163755318030, guid: c051a3249013ac746874a60fe41789cb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1195897022}
+--- !u!114 &1405490001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405489998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f605744e7eb02f5429b91b991a00b47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: 3
+  deadzone_leftAnalog: 0.1
+  deadzone_rightAnalog: 0.1
+  deadzone_trigger: 0.1
+  moveSpeed: 100
+  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
+  bulletColor: {r: 0.7169812, g: 0, b: 0, a: 0}
+  shotDelay: 1
+--- !u!114 &1405490004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405489998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b027599ed4400aa41b40a2c7144321b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 100
+  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
+  bulletColor: {r: 0, g: 0, b: 0, a: 0}
+  shotDelay: 1
+--- !u!114 &1405490006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405489998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: P3
+  lowGroundZ: 50
+  highGroundZ: 440
+  isProtected: 0
+  deathPenalty: 10
+--- !u!1 &1513503552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1006140456906878, guid: 9aab97eff91783a41ae0d5609c821957,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136436380}
+--- !u!114 &1513503553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513503552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: P1
+  lowGroundZ: 50
+  highGroundZ: 440
+  isProtected: 0
+  deathPenalty: 10
+--- !u!114 &1513503559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513503552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f605744e7eb02f5429b91b991a00b47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: 1
+  deadzone_leftAnalog: 0.1
+  deadzone_rightAnalog: 0.1
+  deadzone_trigger: 0.1
+  moveSpeed: 100
+  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
+  bulletColor: {r: 1, g: 1, b: 1, a: 0}
+  shotDelay: 1
 --- !u!4 &1536255606 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 03f80303eb362fc489b3fe5bab219a93,
@@ -1410,7 +1633,7 @@ GameObject:
   - component: {fileID: 2085579933}
   - component: {fileID: 2085579932}
   m_Layer: 0
-  m_Name: High_Ground
+  m_Name: Musica
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1522,7 +1745,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2136436380
 Prefab:
@@ -1584,6 +1807,55 @@ Prefab:
     - target: {fileID: 114868657679556250, guid: 9aab97eff91783a41ae0d5609c821957,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114868657679556250, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c,
+        type: 2}
+    - target: {fileID: 114560017652621918, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114560017652621918, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c,
+        type: 2}
+    - target: {fileID: 114560017652621918, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bomb
+      value: 
+      objectReference: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6,
+        type: 2}
+    - target: {fileID: 114560017652621918, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: shotDelay2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114868657679556250, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bomb
+      value: 
+      objectReference: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6,
+        type: 2}
+    - target: {fileID: 114960249727545688, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bulletColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960249727545688, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bulletColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960249727545688, guid: 9aab97eff91783a41ae0d5609c821957,
+        type: 2}
+      propertyPath: bulletColor.b
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
