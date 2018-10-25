@@ -71,8 +71,6 @@ public class CharSelectScript : MonoBehaviour {
         // Movimento no analógico esquerdo
         var rightX = XCI.GetAxis(XboxAxis.RightStickX, controller);
 
-        Debug.Log(PlayerSelection.chars[playerNum]);
-
         if (!pressed && (rightX != 0) && !chosen)
         {
             pressed = true;
@@ -83,11 +81,11 @@ public class CharSelectScript : MonoBehaviour {
         }
         else if (pressed && rightX == 0 && !chosen) { 
             pressed = false;
-        }else if (!chosen && XCI.GetButton(XboxButton.Start))
+        }else if (!chosen && XCI.GetButton(XboxButton.Start,controller))
         {
             PlayerSelection.chars[playerNum] = selected;
             chosen = true;
-            Debug.Log(selected);
+            Debug.Log("choose: " + selected);
         }
 
     }

@@ -13,7 +13,7 @@ public class PlayerSpawnCharacter : MonoBehaviour{
     // Use this for initialization
     void Start () {
         GameObject pref;
-        if (PlayerSelection.chars[playerNum] > 0)
+        if (PlayerSelection.chars[playerNum] >= 0)
         {
             //se foi escolhido algum personagem, esse jogador vai estar jogando
             pref = Instantiate(
