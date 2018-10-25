@@ -89,11 +89,11 @@ public class ControleXBox : MonoBehaviour {
 
 		if(movement.magnitude > deadzone_leftAnalog){
 			rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
-		
-			rb.position = new Vector3(Mathf.Clamp (rb.position.x, 70, 450),
+		}
+
+		rb.position = new Vector3(Mathf.Clamp (rb.position.x, 70, 450),
 										rb.position.y,
 										Mathf.Clamp (rb.position.z, 10, 489));
-		}
 	}
 
 	// Virar personagem
