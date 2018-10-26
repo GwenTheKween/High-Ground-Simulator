@@ -15,12 +15,15 @@ public class PlayerStatus : MonoBehaviour {
 
     private Transform here;
     private PlayerHUD ScriptHUD;
+    private AudioSource AS;
 
 	void Start(){
 		rb = GetComponent<Rigidbody>();
         here = GetComponent<Transform>();
+        AS = GetComponent<AudioSource>();
 		isProtected = false;
 		score = 0;
+        AS.volume = VolumeScript.sfx;
 	}
 	
 	public void IncreaseScore(int value = 1){
