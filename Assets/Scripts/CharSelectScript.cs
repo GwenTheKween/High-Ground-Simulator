@@ -87,6 +87,11 @@ public class CharSelectScript : MonoBehaviour {
             PlayerSelection.chars[playerNum] = selected;
             chosen = true;
             Panel.SetActive(true);
+        }else if(chosen && XCI.GetButton(XboxButton.B, controller))
+        {
+            PlayerSelection.chars[playerNum] = -1;
+            chosen = false;
+            Panel.SetActive(false);
         }
 
     }
