@@ -10,6 +10,7 @@ public class CharSelectScript : MonoBehaviour {
     public XboxController controller;
     public RenderTexture[] texs;
     public int playerNum;
+    public GameObject Panel;
 
     private static bool didQueryNumOfCtrlrs = false;
     private bool pressed;
@@ -85,7 +86,7 @@ public class CharSelectScript : MonoBehaviour {
         {
             PlayerSelection.chars[playerNum] = selected;
             chosen = true;
-            Debug.Log("choose: " + selected);
+            Panel.SetActive(true);
         }
 
     }
