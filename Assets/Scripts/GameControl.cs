@@ -34,7 +34,6 @@ public class GameControl : MonoBehaviour {
         {
             Timer.text = ((int)seconds_left / 60).ToString() + ":" + (((int)seconds_left) % 60).ToString("D2");
         }
-        Debug.Log(stage);
         if(seconds_left <= 0)
         {
             if(stage == 0)
@@ -60,11 +59,13 @@ public class GameControl : MonoBehaviour {
                 }
                 else
                 {
-                    int p = (int)players[0] - 48;
+                    int p = (int)players[0] - 49;
                     if (PlayerSelection.chars[p] == 0) chars = "Dort";
                     else if (PlayerSelection.chars[p] == 1) chars = "Ikis";
                     else if (PlayerSelection.chars[p] == 2) chars = "Ucan";
                     else chars = "Ibir";
+                    Debug.Log(p);
+                    Debug.Log(PlayerSelection.chars[p]);
                     players = "Jogador: " + players;
                 }
             }

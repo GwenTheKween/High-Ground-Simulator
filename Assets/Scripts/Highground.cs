@@ -38,6 +38,7 @@ public class Highground : MonoBehaviour {
         Debug.Log("entrou");
 		if(other.gameObject.tag == "Player"){
 			var tmp = other.gameObject.GetComponent<PlayerStatus>();
+            if (playerCount == 0) tmp.ImTheKing();
 			playerCount++;
 			
 			for(int i = 1; i <= 4; i++){
@@ -61,6 +62,7 @@ public class Highground : MonoBehaviour {
 						if(players[j-1] > players[i-1])
 							players[j-1]--;
 					}
+                    if (players[i - 1] == 0) tmp.NotTheKing();
 					players[i-1] = -1;
 					return;
 				}

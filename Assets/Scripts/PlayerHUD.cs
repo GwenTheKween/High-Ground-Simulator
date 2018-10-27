@@ -29,12 +29,12 @@ public class PlayerHUD : MonoBehaviour {
 	}
 
 	// Enable the king icon
-	void IHaveTheHighGround(){
+	public void IHaveTheHighGround(){
 		object_king.SetActive(true);
 	}
 
 	// Disable the king icon
-	void LostIt(){
+	public void LostIt(){
 		object_king.SetActive(false);
 	}
 

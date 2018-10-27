@@ -60,4 +60,14 @@ public class PlayerStatus : MonoBehaviour {
         PlayerNum = n;
         name = "P"+(n+1).ToString();
     }
+
+    public void ImTheKing()
+    {
+        ScriptHUD.IHaveTheHighGround();
+    }
+
+    public void NotTheKing()
+    {
+        ScriptHUD.LostIt();
+    }
 }
