@@ -40,7 +40,7 @@ public class Highground : MonoBehaviour {
 			playerCount++;
 			
 			for(int i = 1; i <= 4; i++){
-				if(tmp.name == "P"+i.ToString()){
+				if(tmp.namePlayer == "P"+i.ToString()){
 					players[i-1] += playerCount;
 					status[i-1] = tmp;
 					return;
@@ -55,7 +55,7 @@ public class Highground : MonoBehaviour {
 			playerCount--;
 			
 			for(int i = 1; i <= 4; i++){
-				if(tmp.name == "P"+i.ToString()){
+				if(tmp.namePlayer == "P"+i.ToString()){
 					for(int j = 1; j <= 4; j++){
 						if(players[j-1] > players[i-1])
 							players[j-1]--;

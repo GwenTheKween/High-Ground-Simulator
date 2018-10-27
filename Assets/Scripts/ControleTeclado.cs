@@ -7,16 +7,20 @@ public class ControleTeclado : MonoBehaviour {
 	private Rigidbody rb;
 	private float timeToShoot;
 	private float timeToShoot2;
+	private float protectionCount;
 	public float moveSpeed = 100f;
 	public GameObject bullet;
 	public GameObject bomb;
+	public GameObject protEffect;
 	public Color bulletColor;
 	public float shotDelay = 1f;
 	public float shotDelay2 = 3f;
+	public float protectionTime = 5f;
 	
 	void Start(){
 		timeToShoot = 0;
 		timeToShoot2 = 0;
+		protectionCount = 0;
 		rb = GetComponent<Rigidbody>();
 	}
 	
@@ -34,6 +38,8 @@ public class ControleTeclado : MonoBehaviour {
 
 		//Granadas
 		Grenade();		
+
+		Invulnerable();
 	}
 
 	// Mover personagem
@@ -90,6 +96,17 @@ public class ControleTeclado : MonoBehaviour {
 
 	// Invulnerabilidade
 	void Invulnerable(){
-		
+		if (protectionCount > 0){
+			protectionCount -= Time.deltaTime;
+			if (protectionCount <= 0){
+				GetComponent<PlayerStatus>().isProtected = false;
+			}
+		}
+
+		if (Input.GetButtonDown("Jump") && GetComponent<PlayerStatus>().useProtection()){
+			protectionCount = protectionTime;
+			var effect = Instantiate(protEffect,transform.position,transform.rotation);
+			effect.transform.SetParent(this.transform);
+		}
 	}
 }

@@ -6,12 +6,14 @@ public class PlayerStatus : MonoBehaviour {
 
 	private Rigidbody rb;
 	private int score;
-	public string name;
+	public string namePlayer;
 	public float lowGroundZ;
 	public float highGroundZ;
 	public bool isProtected;
+	public bool hasProtection;
 	public int deathPenalty = 10;
     public GameObject Teleport;
+
 
     private Transform here;
 
@@ -19,12 +21,13 @@ public class PlayerStatus : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
         here = GetComponent<Transform>();
 		isProtected = false;
+		hasProtection = true;
 		score = 0;
 	}
 	
 	public void IncreaseScore(int value = 1){
 		score += value;
-		print(name + ": " + score);
+		print(namePlayer + ": " + score);
 	}
 
 	public int getScore(){
@@ -35,11 +38,18 @@ public class PlayerStatus : MonoBehaviour {
 		if(transform.position.z > lowGroundZ && !isProtected)
 		{
 			score -= deathPenalty;
+			hasProtection = true;
 			if (score < 0)
 				score = 0;
 			rb.MovePosition(new Vector3(rb.position.x,rb.position.y,15));
             Instantiate(Teleport, here.position, Quaternion.identity);
 		}
+	}
+
+	public bool useProtection(){
+		isProtected = hasProtection;
+		hasProtection = false;
+		return isProtected;
 	}
 
 	public bool isOnHighGround(){

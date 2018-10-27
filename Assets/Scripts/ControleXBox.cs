@@ -12,12 +12,14 @@ public class ControleXBox : MonoBehaviour {
 	public float deadzone_trigger = 0.1f;
 	private float timeToShoot;
 	private float timeToShoot2;
+	private float protectionCount;
 	public float moveSpeed = 100f;
 	public GameObject bullet;
 	public GameObject bomb;
 	public Color bulletColor;
 	public float shotDelay = 1f;
 	public float shotDelay2 = 3f;
+	public float protectionTime = 5f;
     public AudioSource shootSFX;
 	
 	private static bool didQueryNumOfCtrlrs = false;
@@ -140,9 +142,17 @@ public class ControleXBox : MonoBehaviour {
 
 	// Invulnerabilidade
 	void Invulnerable(){
+		if (protectionCount > 0){
+			protectionCount -= Time.deltaTime;
+			print("protectionCount = " + protectionCount);
+			if (protectionCount <= 0)
+				GetComponent<PlayerStatus>().isProtected = false;
+		}
 		// Bumpers
-		if(XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetButtonDown(XboxButton.RightBumper, controller)){
-			
+		if((XCI.GetButtonDown(XboxButton.LeftBumper, controller) 
+			|| XCI.GetButtonDown(XboxButton.RightBumper, controller)) 
+			&& GetComponent<PlayerStatus>().useProtection()){
+				protectionCount = protectionTime;
 		}
 	}
 }
