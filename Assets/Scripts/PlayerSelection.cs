@@ -4,5 +4,6 @@ using UnityEngine;
 
 public static class PlayerSelection {
     public static int[] chars;
+    public static int[] scores;
     
 }

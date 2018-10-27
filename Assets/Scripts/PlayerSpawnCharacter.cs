@@ -24,7 +24,7 @@ public class PlayerSpawnCharacter : MonoBehaviour{
             pref.GetComponent<ControleXBox>().setController(controller);
             HUD.GetComponent<PlayerHUD>().SetName((playerNum+1).ToString());
             pref.GetComponent<PlayerStatus>().SetHUD(HUD.GetComponent<PlayerHUD>());
-            pref.GetComponent<PlayerStatus>().SetName("P" + (playerNum + 1).ToString());
+            pref.GetComponent<PlayerStatus>().SetName(playerNum);
         }
         else
         {// desativa o  score do jogador

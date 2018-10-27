@@ -38,8 +38,8 @@ public class PlayerHUD : MonoBehaviour {
 		object_king.SetActive(false);
 	}
 
-	public void SetPoints(int pnts){
-		text_points.text = pnts.ToString("D7");
+	public void SetPoints(int player){
+		text_points.text = PlayerSelection.scores[player].ToString("D7");
 	}
 
     public void SetName(string name)

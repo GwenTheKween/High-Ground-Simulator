@@ -26,8 +26,10 @@ public class CharSelectScript : MonoBehaviour {
         me.texture = texs[0];
         chosen = false;
 
-        if (PlayerSelection.chars == null) PlayerSelection.chars = new int[4];
+        if (PlayerSelection.chars == null)PlayerSelection.chars = new int[4];
+        if (PlayerSelection.scores == null) PlayerSelection.scores = new int[4];
         PlayerSelection.chars[playerNum] = -1;
+        PlayerSelection.scores[playerNum] = 0;
 
         if (!didQueryNumOfCtrlrs)
         {
