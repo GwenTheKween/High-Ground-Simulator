@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4034434775401408}
   - component: {fileID: 33841524701095620}
   - component: {fileID: 23608225914300628}
-  - component: {fileID: 136355018016142016}
   - component: {fileID: 111908878655451990}
   - component: {fileID: 114682551320225992}
   m_Layer: 0
@@ -114,16 +113,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 5
---- !u!136 &136355018016142016
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1891489911677058}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
