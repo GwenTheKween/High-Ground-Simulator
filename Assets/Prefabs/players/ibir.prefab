@@ -229,11 +229,13 @@ MonoBehaviour:
   moveSpeed: 100
   bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
   bomb: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6, type: 2}
+  protEffect: {fileID: 1891489911677058, guid: 7e1a0d4fa691a174e84706d22aa525a3, type: 2}
   bulletColor: {r: 0.14117648, g: 0.011764706, b: 0.48235294, a: 0.95686275}
   BombColor: {r: 0.21568628, g: 0.29803923, b: 0.49019608, a: 0.99215686}
   shotDelay: 1
   shotDelay2: 3
-  shootSFX: {fileID: 0}
+  protectionTime: 5
+  shootSFX: {fileID: 82919089005345880}
 --- !u!114 &114330242579395840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,9 +250,11 @@ MonoBehaviour:
   moveSpeed: 0
   bullet: {fileID: 0}
   bomb: {fileID: 0}
+  protEffect: {fileID: 0}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
   shotDelay2: 3
+  protectionTime: 5
 --- !u!114 &114475463698411864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,10 +266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d8e325e30078b4f9628ccfb2d2283f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   name: 
   lowGroundZ: 50
   highGroundZ: 440
   isProtected: 0
+  hasProtection: 0
   deathPenalty: 10
   Teleport: {fileID: 1971764036424386, guid: 6673586a68638d846a1762680ace63c3, type: 2}

@@ -146,6 +146,7 @@ public class ControleXBox : MonoBehaviour {
 	void Invulnerable(){
 		if (protectionCount > 0){
 			protectionCount -= Time.deltaTime;
+			Debug.Log(protectionCount);
 			if (protectionCount <= 0){
 				GetComponent<PlayerStatus>().isProtected = false;
 			}

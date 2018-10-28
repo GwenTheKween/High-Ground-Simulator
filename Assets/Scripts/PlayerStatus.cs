@@ -23,6 +23,7 @@ public class PlayerStatus : MonoBehaviour {
         here = GetComponent<Transform>();
         AS = GetComponent<AudioSource>();
 		isProtected = false;
+		hasProtection = true;
 		AS.volume = VolumeScript.sfx;
 	}
 	
