@@ -39,7 +39,7 @@ public class PlayerStatus : MonoBehaviour {
 			if(PlayerSelection.scores[PlayerNum] < 0)
 				PlayerSelection.scores[PlayerNum] = 0;
 			ScriptHUD.SetPoints(PlayerNum);
-			rb.MovePosition(new Vector3(rb.position.x,rb.position.y,15));
+			rb.MovePosition(new Vector3(450,rb.position.y,rb.position.z));
             Instantiate(Teleport, here.position, Quaternion.identity);
 		}
 	}
