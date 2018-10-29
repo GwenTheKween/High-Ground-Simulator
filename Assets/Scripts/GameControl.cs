@@ -23,7 +23,7 @@ public class GameControl : MonoBehaviour {
 	void Start () {
         AS = GetComponent<AudioSource>();
         AS.volume = VolumeScript.bgm;
-        seconds_left = 30;
+        seconds_left = 60;
         stage = 0;
 	}
 	
@@ -36,6 +36,7 @@ public class GameControl : MonoBehaviour {
         }
         if(seconds_left <= 0)
         {
+			Time.timeScale = 0;
             if(stage == 0)
             {
                 //activate end game panel
