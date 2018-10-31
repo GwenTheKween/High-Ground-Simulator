@@ -23,7 +23,7 @@ public class GameControl : MonoBehaviour {
 	void Start () {
         AS = GetComponent<AudioSource>();
         AS.volume = VolumeScript.bgm;
-        seconds_left = 60;
+        seconds_left = 300;
         stage = 0;
 	}
 	
