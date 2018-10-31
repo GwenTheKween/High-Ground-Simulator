@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour {
 
 	// Colisão
 	void OnTriggerEnter(Collider other){
-		if(other.gameObject.name != parentName){
+		if(other.gameObject.name != parentName && other.gameObject.tag != "Region"){
 			if(other.gameObject.tag == "Player" && !other.GetComponent<PlayerStatus>().isProtected){
 				//Destroy(other.gameObject); // usar método Death quando existir
 				other.gameObject.GetComponent<PlayerStatus>().Death();
