@@ -23,6 +23,9 @@ public class ControleXBox : MonoBehaviour {
 	public float shotDelay2 = 3f;
 	public float protectionTime = 5f;
     public AudioSource shootSFX;
+	public float angle;
+	private float sangle;
+	private float cangle;
 	
 	private static bool didQueryNumOfCtrlrs = false;
 	
@@ -61,6 +64,8 @@ public class ControleXBox : MonoBehaviour {
                 Debug.Log("Apenas em Windows:: Controle 4 conectado: " + XCI.IsPluggedIn(XboxController.Fourth).ToString());
             }
         }
+		sangle = Mathf.Sin(angle*Mathf.PI/180);
+		cangle = Mathf.Cos(angle*Mathf.PI/180);
 		
 	}
 	
@@ -89,7 +94,7 @@ public class ControleXBox : MonoBehaviour {
 		// Movimento no analógico esquerdo
 		var leftX = XCI.GetAxis(XboxAxis.LeftStickX, controller);
         var leftY = XCI.GetAxis(XboxAxis.LeftStickY, controller);
-		var movement = new Vector3(-leftY, 0f, leftX);
+		var movement = new Vector3(leftX*cangle-leftY*sangle, 0f, leftX*sangle + leftY*cangle);
 
 		if(movement.magnitude > deadzone_leftAnalog){
 			rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
