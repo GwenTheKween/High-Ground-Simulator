@@ -36,7 +36,6 @@ public class GameControl : MonoBehaviour {
         }
         if(seconds_left <= 0)
         {
-			Time.timeScale = 0;
             if(stage == 0)
             {
                 //activate end game panel
@@ -72,6 +71,7 @@ public class GameControl : MonoBehaviour {
             }
             else if(stage == 1)
             {
+				Debug.Log(mx_score);
                 //shows score
                 final_game_score.gameObject.SetActive(true);
                 final_game_score.text = "Pontuacao: "+mx_score.ToString();
@@ -80,6 +80,7 @@ public class GameControl : MonoBehaviour {
             }
             else if(stage == 2)
             {
+				Debug.Log(chars);
                 //shows character name
                 final_game_name.gameObject.SetActive(true);
                 final_game_name.text = chars;
@@ -88,6 +89,7 @@ public class GameControl : MonoBehaviour {
             }
             else if (stage == 3)
             {
+				Debug.Log(players);
                 //shows which player won.
                 final_game_player.gameObject.SetActive(true);
                 final_game_player.text = players;
@@ -98,6 +100,7 @@ public class GameControl : MonoBehaviour {
             {
                 final_back_button.SetActive(true);
                 stage = 5;
+				Time.timeScale = 0;
             }
         }
 	}

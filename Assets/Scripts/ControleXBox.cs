@@ -110,7 +110,7 @@ public class ControleXBox : MonoBehaviour {
 		// Mira no analógico direito
 		var rightX = XCI.GetAxis(XboxAxis.RightStickX, controller);
         var rightY = XCI.GetAxis(XboxAxis.RightStickY, controller);
-		var direction = new Vector3(-rightY, 0, rightX);
+		var direction = new Vector3(-rightX, 0, -rightY);
 		if(direction.magnitude > deadzone_rightAnalog)
 			rb.transform.forward = direction;
 	}
