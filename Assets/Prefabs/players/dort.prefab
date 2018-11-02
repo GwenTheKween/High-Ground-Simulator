@@ -273,3 +273,4 @@ MonoBehaviour:
   shotDelay2: 3
   protectionTime: 5
   shootSFX: {fileID: 82116225141797982}
+  angle: 180

@@ -236,6 +236,7 @@ MonoBehaviour:
   shotDelay2: 3
   protectionTime: 5
   shootSFX: {fileID: 82919089005345880}
+  angle: 180
 --- !u!114 &114330242579395840
 MonoBehaviour:
   m_ObjectHideFlags: 1
