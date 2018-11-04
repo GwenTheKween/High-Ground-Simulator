@@ -100,9 +100,9 @@ public class ControleXBox : MonoBehaviour {
 			rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
 		}
 
-		rb.position = new Vector3(Mathf.Clamp (rb.position.x, 8, 490),
-										rb.position.y,
-										Mathf.Clamp (rb.position.z, 8, 489));
+		//rb.position = new Vector3(Mathf.Clamp (rb.position.x, 8, 490),
+		//								rb.position.y,
+		//								Mathf.Clamp (rb.position.z, 8, 489));
 	}
 
 	// Virar personagem

@@ -16,6 +16,7 @@ public class ControleTeclado : MonoBehaviour {
 	public float shotDelay = 1f;
 	public float shotDelay2 = 3f;
 	public float protectionTime = 5f;
+	public AudioSource shootSFX;
 	
 	void Start(){
 		timeToShoot = 0;
@@ -50,9 +51,9 @@ public class ControleTeclado : MonoBehaviour {
 		rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
 
 		// Limites de cenário (hardcoded)
-		rb.position = new Vector3(Mathf.Clamp (rb.position.x, 70, 450),
-									rb.position.y,
-									Mathf.Clamp (rb.position.z, 10, 489));
+		//rb.position = new Vector3(Mathf.Clamp (rb.position.x, 70, 450),
+		//							rb.position.y,
+		//							Mathf.Clamp (rb.position.z, 10, 489));
 	}
 
 	// Virar personagem
@@ -72,8 +73,8 @@ public class ControleTeclado : MonoBehaviour {
 
 		// Atirar
 		if(Input.GetButtonDown("Fire1") && timeToShoot <= 0){
+			shootSFX.Play();
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
-//			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			timeToShoot = shotDelay;

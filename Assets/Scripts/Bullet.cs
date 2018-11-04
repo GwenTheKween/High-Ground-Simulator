@@ -8,14 +8,22 @@ public class Bullet : MonoBehaviour {
 	private string parentName;
 	public float speed = 500f;
 	public float size = 6f;
+	public float lifeTime = 10f;
+	public GameObject spawnParticle;
+	public GameObject destroyParticle;
 	
 	void Start(){
 		rb = GetComponent<Rigidbody>();
 		transform.localScale = new Vector3(size,size,size);
+		var particles = Instantiate(spawnParticle,transform.position,transform.rotation);
+		particles.transform.localScale = new Vector3(size,size,size);
 	}
 
 	// Mover a bala
 	void Update () {
+		if(lifeTime < 0) Destroy(this.gameObject);
+		lifeTime -= Time.deltaTime;
+
 		// Mover a bala em direção e velocidade constante
 		//transform.position += transform.forward * Time.deltaTime * speed;
 		rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speed);
@@ -23,12 +31,15 @@ public class Bullet : MonoBehaviour {
 
 	// Colisão
 	void OnTriggerEnter(Collider other){
-		if(other.gameObject.name != parentName && other.gameObject.tag != "Region"){
+		if(other.gameObject.name != parentName && other.gameObject.tag != "Region" && other.gameObject.tag != "Bullet"
+												&& other.gameObject.tag != "MapLimit"){
+			Destroy(this.gameObject);
+			var particles = Instantiate(destroyParticle,transform.position,Quaternion.identity);
+			particles.transform.localScale = new Vector3(size,size,size);
+			
 			if(other.gameObject.tag == "Player" && !other.GetComponent<PlayerStatus>().isProtected){
-				//Destroy(other.gameObject); // usar método Death quando existir
 				other.gameObject.GetComponent<PlayerStatus>().Death();
 			}
-			Destroy(this.gameObject);
 		}
 	}
 

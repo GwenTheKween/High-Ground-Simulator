@@ -325,7 +325,7 @@ MonoBehaviour:
   verticalSpeed: 5
   gravity: 15
   size: 10
-  bomb: {fileID: 1805911928337416, guid: 515f6d1e84a04bf4388de22e197834d9, type: 2}
+  bomb: {fileID: 1927877935027814, guid: 2be5d719821ec73419b233f15da76cf5, type: 2}
   bulletDetector: {fileID: 1037621135462014, guid: 13bdcf050ec3be9408d673f55d19480a,
     type: 2}
   parentColor: {r: 0.32156864, g: 0.39607844, b: 0.59607846, a: 0}

@@ -35,12 +35,13 @@ public class PlayerStatus : MonoBehaviour {
 	public void Death(){
 		if(transform.position.z > lowGroundZ && !isProtected)
 		{
+			rb.MovePosition(new Vector3(450,rb.position.y,rb.position.z));
+            Instantiate(Teleport, here.position, Quaternion.identity);
 			PlayerSelection.scores[PlayerNum] -= deathPenalty;
 			if(PlayerSelection.scores[PlayerNum] < 0)
 				PlayerSelection.scores[PlayerNum] = 0;
 			ScriptHUD.SetPoints(PlayerNum);
-			rb.MovePosition(new Vector3(450,rb.position.y,rb.position.z));
-            Instantiate(Teleport, here.position, Quaternion.identity);
+			
 		}
 	}
 

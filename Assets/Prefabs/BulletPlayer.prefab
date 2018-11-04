@@ -39,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805911928337416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 154, y: 120.5, z: 328}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,14 +53,14 @@ MeshRenderer:
   m_GameObject: {fileID: 1805911928337416}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 92dfbe6e1faf9004e8f6836d4e938877, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,6 +130,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 400
   size: 6
+  lifeTime: 10
+  spawnParticle: {fileID: 1695737176238604, guid: 63cca9c4ebd5009418269dfba2f54ccd,
+    type: 2}
+  destroyParticle: {fileID: 1777201279677852, guid: ef8117ee4b9beee48b5a289034a5ef85,
+    type: 2}
 --- !u!135 &135793193885688766
 SphereCollider:
   m_ObjectHideFlags: 1
