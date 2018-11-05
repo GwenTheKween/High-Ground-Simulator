@@ -124,11 +124,11 @@ public class ControleXBox : MonoBehaviour {
 		// Atirar
 		// O quanto o trigger direito foi apertado
 		if(XCI.GetAxis(XboxAxis.RightTrigger, controller) > deadzone_trigger && timeToShoot <= 0){
+			shootSFX.Play();
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			timeToShoot = shotDelay;
-            shootSFX.Play();
 		}
 	}
 

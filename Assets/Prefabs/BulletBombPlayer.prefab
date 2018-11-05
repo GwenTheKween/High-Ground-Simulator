@@ -26,7 +26,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!1 &1180037024310266
 GameObject:
@@ -43,7 +43,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!1 &1209005101174148
 GameObject:
@@ -60,7 +60,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!1 &1805911928337416
 GameObject:
@@ -80,7 +80,7 @@ GameObject:
   m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &4167019414556892
 Transform:
@@ -325,6 +325,7 @@ MonoBehaviour:
   verticalSpeed: 5
   gravity: 15
   size: 10
+  lifeTime: 10
   bomb: {fileID: 1927877935027814, guid: 2be5d719821ec73419b233f15da76cf5, type: 2}
   bulletDetector: {fileID: 1037621135462014, guid: 13bdcf050ec3be9408d673f55d19480a,
     type: 2}
