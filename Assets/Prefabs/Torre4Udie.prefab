@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4328018019292008}
   m_Layer: 0
-  m_Name: Torre4Udie
+  m_Name: Torre4Tiros
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 33820653771049842}
   - component: {fileID: 23657027969548744}
   - component: {fileID: 95610698355112468}
+  - component: {fileID: 136275934864269554}
   m_Layer: 0
   m_Name: model_turret_base1
   m_TagString: Untagged
@@ -120,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 1095532205755776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 293.9, y: 14.7, z: 215.1}
-  m_LocalScale: {x: 11.25735, y: 11.25735, z: 11.25735}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 4761789464310360}
   - {fileID: 4281875036634538}
@@ -181,7 +182,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 2a742a73a7252774285687ebfacae99c, type: 3}
+  - {fileID: 2100000, guid: 38b17e3a4b29c954dabfaaa08bd3e70e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,7 +217,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 63875e2ea61e04f4191647d27e5c0509, type: 3}
+  - {fileID: 2100000, guid: fdf55b43b6b2a1d4b9efadaff42386f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -372,3 +373,16 @@ MonoBehaviour:
   bulletColor: {r: 0.15865096, g: 0.735849, b: 0.09371662, a: 0}
   offsetBullet: {x: 0, y: 0, z: 20}
   carga: 0200000003000000040000000100000002000000
+--- !u!136 &136275934864269554
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907991031472534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.545481
+  m_Height: 5.5723944
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.4058644, z: -0.0000019560043}

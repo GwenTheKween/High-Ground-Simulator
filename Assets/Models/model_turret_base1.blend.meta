@@ -11,7 +11,12 @@ ModelImporter:
     4300000: Circle
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material__texture_turret_base1_png
+    second: {fileID: 2100000, guid: fdf55b43b6b2a1d4b9efadaff42386f1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -13,7 +13,7 @@ public class rotacao : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		rb.transform.Rotate(velocidadeRotacao * Vector3.up * Time.deltaTime, Space.World);
 	}
 }

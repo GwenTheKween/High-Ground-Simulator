@@ -33,7 +33,7 @@ public class BulletBomb : MonoBehaviour {
 
 	// Colisão
 	void OnTriggerEnter(Collider other){
-		if(other.gameObject.name != parentName && other.gameObject.tag != "Detector" && other.gameObject.tag != "Region"){
+		if(other.gameObject.name != parentName && other.gameObject.tag != "Detector" && other.gameObject.tag != "Turret" && other.gameObject.tag != "Region"){
 			Explode();
 		}
 	}
