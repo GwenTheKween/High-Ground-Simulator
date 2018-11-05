@@ -252,10 +252,13 @@ MonoBehaviour:
   bullet: {fileID: 0}
   bomb: {fileID: 0}
   protEffect: {fileID: 0}
+  bulletOffset: {x: 0, y: 0, z: 0}
+  grenadeOffset: {x: 0, y: 0, z: 0}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
   shotDelay: 1
   shotDelay2: 3
   protectionTime: 5
+  shootSFX: {fileID: 0}
 --- !u!114 &114929876472807176
 MonoBehaviour:
   m_ObjectHideFlags: 1

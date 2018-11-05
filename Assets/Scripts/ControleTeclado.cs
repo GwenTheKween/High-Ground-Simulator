@@ -13,6 +13,8 @@ public class ControleTeclado : MonoBehaviour {
 	public GameObject bullet;
 	public GameObject bomb;
 	public GameObject protEffect;
+	public Vector3 bulletOffset;
+	public Vector3 grenadeOffset;
 	public Color bulletColor;
 	public float shotDelay = 1f;
 	public float shotDelay2 = 3f;
@@ -24,7 +26,7 @@ public class ControleTeclado : MonoBehaviour {
 		timeToShoot2 = 0;
 		protectionCount = 0;
 		rb = GetComponent<Rigidbody>();
-		anim = GetComponent<Animator>();
+		anim = GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -78,6 +80,7 @@ public class ControleTeclado : MonoBehaviour {
 		if(Input.GetButtonDown("Fire1") && timeToShoot <= 0){
 			shootSFX.Play();
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
+			shot.transform.Translate(bulletOffset);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			timeToShoot = shotDelay;
@@ -91,9 +94,8 @@ public class ControleTeclado : MonoBehaviour {
 
 		if(Input.GetButtonDown("Fire2") && timeToShoot2 <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
+			shot.transform.Translate(grenadeOffset);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
-			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
-			shot.GetComponent<BulletBomb>().parentColor = bulletColor;
 			timeToShoot2 = shotDelay2;
 		}	
 	}
