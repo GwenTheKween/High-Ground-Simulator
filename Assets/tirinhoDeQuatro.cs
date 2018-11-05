@@ -41,6 +41,7 @@ public class tirinhoDeQuatro : MonoBehaviour {
 				quantosTirosFaltam = carga[qualCarga];
 			}
 		}
+			
 	}
 	
 	void Shoot4Me(){
@@ -49,20 +50,20 @@ public class tirinhoDeQuatro : MonoBehaviour {
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			
-			var shot2 = Instantiate(bullet, transform.position, transform.rotation);
-			shot2.transform.Rotate(90 * Vector3.up, Space.World);
+			var shot2 = Instantiate(bullet, transform.position, transform.rotation * Quaternion.Euler(0,90,0));
+			//shot2.transform.Rotate(90 * Vector3.up, Space.World);
 			shot2.transform.Translate(offsetBullet, Space.Self);
 			shot2.GetComponent<Bullet>().SetParentName(this.name);
 			shot2.GetComponent<MeshRenderer>().material.color = bulletColor;
 			
-			var shot3 = Instantiate(bullet, transform.position, transform.rotation);
-			shot3.transform.Rotate(180 * Vector3.up, Space.World);
+			var shot3 = Instantiate(bullet, transform.position, transform.rotation * Quaternion.Euler(0,180,0));
+			//shot3.transform.Rotate(180 * Vector3.up, Space.World);
 			shot3.transform.Translate(offsetBullet, Space.Self);
 			shot3.GetComponent<Bullet>().SetParentName(this.name);
 			shot3.GetComponent<MeshRenderer>().material.color = bulletColor;
 			
-			var shot4 = Instantiate(bullet, transform.position, transform.rotation);
-			shot4.transform.Rotate(270 * Vector3.up, Space.World);
+			var shot4 = Instantiate(bullet, transform.position, transform.rotation * Quaternion.Euler(0,270,0));
+			//shot4.transform.Rotate(270 * Vector3.up, Space.World);
 			shot4.transform.Translate(offsetBullet, Space.Self);
 			shot4.GetComponent<Bullet>().SetParentName(this.name);
 			shot4.GetComponent<MeshRenderer>().material.color = bulletColor;
