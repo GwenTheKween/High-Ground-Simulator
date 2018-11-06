@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playkill : MonoBehaviour {
+public class Playkill : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col) {
         var ps = col.gameObject.GetComponent<PlayerStatus>();
