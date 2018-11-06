@@ -8,6 +8,7 @@ public class TurretMortarBombIt : MonoBehaviour {
 	private float timeToBomb;
 	public float bombDelay;
 	public Color bombColor;
+	public Vector3 offsetBullet = new Vector3(0f, 0f, 1.7f);
 	
 	// Use this for initialization
 	void Start () {
@@ -21,9 +22,9 @@ public class TurretMortarBombIt : MonoBehaviour {
 
 		if(timeToBomb <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
+			shot.transform.Translate(offsetBullet, Space.Self);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
 			shot.GetComponent<MeshRenderer>().material.color = bombColor;
-			shot.GetComponent<BulletBomb>().parentColor = bombColor;
 			timeToBomb = bombDelay;
 		}	
 	}

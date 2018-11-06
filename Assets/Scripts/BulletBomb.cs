@@ -19,7 +19,7 @@ public class BulletBomb : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		transform.localScale = new Vector3(size,size,size);
 		detect = Instantiate(bulletDetector, transform.position, transform.rotation);
-		detect.GetComponent<bulletDetection>().parent = this.gameObject;
+		detect.GetComponent<BulletDetection>().parent = this.gameObject;
 		rb.velocity = new Vector3(0f,verticalSpeed,0f) + transform.forward*speed;
 	}
 

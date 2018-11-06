@@ -1183,6 +1183,7 @@ MonoBehaviour:
   shotDelay2: 3
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
+  velocidadeRotacao: 8
 --- !u!114 &114868657679556250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1208,6 +1209,7 @@ MonoBehaviour:
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
   angle: 180
+  velocidadeRotacao: 8
 --- !u!137 &137033773666895096
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

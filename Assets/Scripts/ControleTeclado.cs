@@ -20,6 +20,7 @@ public class ControleTeclado : MonoBehaviour {
 	public float shotDelay2 = 3f;
 	public float protectionTime = 5f;
 	public AudioSource shootSFX;
+	public float velocidadeRotacao = 8f;
 	
 	void Start(){
 		timeToShoot = 0;
@@ -62,8 +63,14 @@ public class ControleTeclado : MonoBehaviour {
 		var rZ = Input.GetAxis("Horizontal_2");
         var rX = Input.GetAxis("Vertical_2");
 		var direction = new Vector3(-rZ, 0, -rX);
-		if(direction != Vector3.zero)
-			rb.transform.forward = direction;
+		if(direction != Vector3.zero){
+			//rb.transform.forward = direction;
+		
+			//Código adaptado de https://forum.unity.com/threads/smooth-look-at.26141/
+			var targetRotation = Quaternion.LookRotation(direction);
+			// Smoothly rotate towards the target point.
+			rb.transform.rotation = Quaternion.Slerp(rb.transform.rotation, targetRotation, velocidadeRotacao * Time.deltaTime);
+		}
 	}
 
 	// Atirar com a arma

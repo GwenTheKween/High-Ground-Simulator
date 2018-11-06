@@ -324,12 +324,11 @@ MonoBehaviour:
   speed: 200
   verticalSpeed: 150
   gravity: 15
-  size: 10
+  size: 15
   lifeTime: 10
   bomb: {fileID: 1927877935027814, guid: 2be5d719821ec73419b233f15da76cf5, type: 2}
   bulletDetector: {fileID: 1037621135462014, guid: 13bdcf050ec3be9408d673f55d19480a,
     type: 2}
-  parentColor: {r: 0.32156864, g: 0.39607844, b: 0.59607846, a: 0}
 --- !u!135 &135111468731575716
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -29,7 +29,7 @@ GameObject:
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4167019414556892
 Transform:
@@ -112,11 +112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c520f091e2b9e64b8be91ed06bd092f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 80
   size: 8
   lifeTime: 10
-  spawnParticle: {fileID: 0}
-  destroyParticle: {fileID: 0}
+  spawnParticle: {fileID: 1695737176238604, guid: d1161e62c8531324f9de0bd1bc3125c5,
+    type: 2}
+  destroyParticle: {fileID: 1777201279677852, guid: ef8117ee4b9beee48b5a289034a5ef85,
+    type: 2}
 --- !u!135 &135793193885688766
 SphereCollider:
   m_ObjectHideFlags: 1

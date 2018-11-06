@@ -25,6 +25,8 @@ public class ControleXBox : MonoBehaviour {
 	public float angle;
 	private float sangle;
 	private float cangle;
+	private Animator anim;
+	public float velocidadeRotacao = 8f;
 	
 	private static bool didQueryNumOfCtrlrs = false;
 	
@@ -66,6 +68,8 @@ public class ControleXBox : MonoBehaviour {
 		sangle = Mathf.Sin(angle*Mathf.PI/180);
 		cangle = Mathf.Cos(angle*Mathf.PI/180);
 		
+		anim = GetComponentInChildren<Animator>();
+		
 	}
 	
 	// Update is called once per frame
@@ -93,15 +97,18 @@ public class ControleXBox : MonoBehaviour {
 		// Movimento no analógico esquerdo
 		var leftX = XCI.GetAxis(XboxAxis.LeftStickX, controller);
         var leftY = XCI.GetAxis(XboxAxis.LeftStickY, controller);
-		var movement = new Vector3(leftX*cangle-leftY*sangle, 0f, leftX*sangle + leftY*cangle);
-
+		var movement = new Vector3((leftX*cangle-leftY*sangle)*moveSpeed, rb.velocity.y, (leftX*sangle + leftY*cangle)*moveSpeed);
+		
 		if(movement.magnitude > deadzone_leftAnalog){
-			rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
+			rb.velocity = movement;
+			//rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
 		}
 
 		//rb.position = new Vector3(Mathf.Clamp (rb.position.x, 8, 490),
 		//								rb.position.y,
 		//								Mathf.Clamp (rb.position.z, 8, 489));
+		
+		anim.SetFloat("Speed", movement.magnitude/moveSpeed);
 	}
 
 	// Virar personagem
@@ -110,8 +117,14 @@ public class ControleXBox : MonoBehaviour {
 		var rightX = XCI.GetAxis(XboxAxis.RightStickX, controller);
         var rightY = XCI.GetAxis(XboxAxis.RightStickY, controller);
 		var direction = new Vector3(-rightX, 0, -rightY);
-		if(direction.magnitude > deadzone_rightAnalog)
-			rb.transform.forward = direction;
+		if(direction.magnitude > deadzone_rightAnalog){
+			//rb.transform.forward = direction;
+			
+			//Código adaptado de https://forum.unity.com/threads/smooth-look-at.26141/
+			var targetRotation = Quaternion.LookRotation(direction);
+			// Smoothly rotate towards the target point.
+			rb.transform.rotation = Quaternion.Slerp(rb.transform.rotation, targetRotation, velocidadeRotacao * Time.deltaTime);
+		}
 	}
 
 	// Atirar com a arma
