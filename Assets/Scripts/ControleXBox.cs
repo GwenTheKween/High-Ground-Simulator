@@ -18,7 +18,6 @@ public class ControleXBox : MonoBehaviour {
 	public GameObject bomb;
 	public GameObject protEffect;
 	public Color bulletColor;
-    public Color BombColor;
 	public float shotDelay = 1f;
 	public float shotDelay2 = 3f;
 	public float protectionTime = 5f;
@@ -141,8 +140,6 @@ public class ControleXBox : MonoBehaviour {
 		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToShoot2 <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
-			shot.GetComponent<MeshRenderer>().material.color = BombColor;
-			shot.GetComponent<BulletBomb>().parentColor = BombColor;
 			timeToShoot2 = shotDelay2;
 		}
 	}

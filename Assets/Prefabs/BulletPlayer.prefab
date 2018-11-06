@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 400
   size: 6
-  lifeTime: 5.4627194
+  lifeTime: 10
   spawnParticle: {fileID: 1695737176238604, guid: 63cca9c4ebd5009418269dfba2f54ccd,
     type: 2}
   destroyParticle: {fileID: 1777201279677852, guid: ef8117ee4b9beee48b5a289034a5ef85,

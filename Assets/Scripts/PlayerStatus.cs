@@ -6,10 +6,9 @@ public class PlayerStatus : MonoBehaviour {
 
 	private Rigidbody rb;
 	public string name;
-	public float lowGroundZ;
-	public float highGroundZ;
-	public bool isProtected;
-	public bool hasProtection;
+	public float protectedY;
+	public bool isProtected = false;
+	public bool hasProtection = true;
 	public int deathPenalty = 10;
     public GameObject Teleport;
 
@@ -22,8 +21,6 @@ public class PlayerStatus : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
         here = GetComponent<Transform>();
         AS = GetComponent<AudioSource>();
-		isProtected = false;
-		hasProtection = true;
 		AS.volume = VolumeScript.sfx;
 	}
 	
@@ -33,9 +30,9 @@ public class PlayerStatus : MonoBehaviour {
 	}
 
 	public void Death(){
-		if(transform.position.z > lowGroundZ && !isProtected)
+		if(transform.position.y > protectedY && !isProtected)
 		{
-			transform.position = new Vector3(450,rb.position.y,rb.position.z);
+			transform.position = new Vector3(765,-13,rb.position.z);
             Instantiate(Teleport, here.position, Quaternion.identity);
 			PlayerSelection.scores[PlayerNum] -= deathPenalty;
 			if(PlayerSelection.scores[PlayerNum] < 0)
@@ -49,13 +46,6 @@ public class PlayerStatus : MonoBehaviour {
 		isProtected = hasProtection;
 		hasProtection = false;
 		return isProtected;
-	}
-
-	public bool isOnHighGround(){
-		if (transform.position.z >= highGroundZ){
-			return true;
-		}
-		return false;
 	}
 
     public void SetHUD(PlayerHUD hud)
