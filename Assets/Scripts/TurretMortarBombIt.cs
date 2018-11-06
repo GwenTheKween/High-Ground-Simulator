@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombardeiaGalera : MonoBehaviour {
+public class TurretMortarBombIt : MonoBehaviour {
 	
 	public GameObject bomb;
 	private float timeToBomb;

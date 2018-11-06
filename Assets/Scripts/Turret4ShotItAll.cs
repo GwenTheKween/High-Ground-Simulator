@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class tirinhoDeQuatro : MonoBehaviour {
+public class Turret4ShotItAll : MonoBehaviour {
 	
 	//private Rigidbody rb;
 	private float timeToShoot;

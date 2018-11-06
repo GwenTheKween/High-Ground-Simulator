@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4517318238602614}
   m_Layer: 0
-  m_Name: TorreMorteiro
+  m_Name: TurretMortar
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

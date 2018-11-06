@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotacao : MonoBehaviour {
+public class TurretRotate : MonoBehaviour {
 	
 	private Rigidbody rb;
 	public float velocidadeRotacao = 50f;

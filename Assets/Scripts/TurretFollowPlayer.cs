@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeguePlayer : MonoBehaviour {
+public class TurretFollowPlayer : MonoBehaviour {
 	
 	private GameObject[] players;
 	private Transform target;
