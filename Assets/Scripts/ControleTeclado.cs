@@ -54,11 +54,6 @@ public class ControleTeclado : MonoBehaviour {
 		var movement = new Vector3(-leftY, 0f, leftX);
 		rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
 		anim.SetFloat("Speed", movement.magnitude);
-
-		// Limites de cenário (hardcoded)
-		//rb.position = new Vector3(Mathf.Clamp (rb.position.x, 70, 450),
-		//							rb.position.y,
-		//							Mathf.Clamp (rb.position.z, 10, 489));
 	}
 
 	// Virar personagem
