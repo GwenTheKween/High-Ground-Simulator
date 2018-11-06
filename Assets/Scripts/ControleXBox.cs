@@ -18,7 +18,6 @@ public class ControleXBox : MonoBehaviour {
 	public GameObject bomb;
 	public GameObject protEffect;
 	public Color bulletColor;
-    public Color BombColor;
 	public float shotDelay = 1f;
 	public float shotDelay2 = 3f;
 	public float protectionTime = 5f;
@@ -100,9 +99,9 @@ public class ControleXBox : MonoBehaviour {
 			rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
 		}
 
-		rb.position = new Vector3(Mathf.Clamp (rb.position.x, 8, 490),
-										rb.position.y,
-										Mathf.Clamp (rb.position.z, 8, 489));
+		//rb.position = new Vector3(Mathf.Clamp (rb.position.x, 8, 490),
+		//								rb.position.y,
+		//								Mathf.Clamp (rb.position.z, 8, 489));
 	}
 
 	// Virar personagem
@@ -124,11 +123,11 @@ public class ControleXBox : MonoBehaviour {
 		// Atirar
 		// O quanto o trigger direito foi apertado
 		if(XCI.GetAxis(XboxAxis.RightTrigger, controller) > deadzone_trigger && timeToShoot <= 0){
+			shootSFX.Play();
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			timeToShoot = shotDelay;
-            shootSFX.Play();
 		}
 	}
 
@@ -141,8 +140,6 @@ public class ControleXBox : MonoBehaviour {
 		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToShoot2 <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
-			shot.GetComponent<MeshRenderer>().material.color = BombColor;
-			shot.GetComponent<BulletBomb>().parentColor = BombColor;
 			timeToShoot2 = shotDelay2;
 		}
 	}

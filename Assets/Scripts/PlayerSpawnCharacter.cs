@@ -18,7 +18,7 @@ public class PlayerSpawnCharacter : MonoBehaviour{
             //se foi escolhido algum personagem, esse jogador vai estar jogando
             pref = Instantiate(
                 prefabs[PlayerSelection.chars[playerNum]],
-                new Vector3( 470f, 17f, (playerNum + 1) * 100f),
+                new Vector3( 765f, -13f, 50 +  (playerNum) * 100f),
                 Quaternion.identity
                 );
             pref.GetComponent<ControleXBox>().setController(controller);

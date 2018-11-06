@@ -8,20 +8,25 @@ public class ControleTeclado : MonoBehaviour {
 	private float timeToShoot;
 	private float timeToShoot2;
 	private float protectionCount;
+	private Animator anim;
 	public float moveSpeed = 100f;
 	public GameObject bullet;
 	public GameObject bomb;
 	public GameObject protEffect;
+	public Vector3 bulletOffset;
+	public Vector3 grenadeOffset;
 	public Color bulletColor;
 	public float shotDelay = 1f;
 	public float shotDelay2 = 3f;
 	public float protectionTime = 5f;
+	public AudioSource shootSFX;
 	
 	void Start(){
 		timeToShoot = 0;
 		timeToShoot2 = 0;
 		protectionCount = 0;
 		rb = GetComponent<Rigidbody>();
+		anim = GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -46,20 +51,17 @@ public class ControleTeclado : MonoBehaviour {
 	void Move(){
 		var leftX = Input.GetAxis("Horizontal");
         var leftY = Input.GetAxis("Vertical");
-		var movement = new Vector3(-leftY, 0f, leftX);
-		rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
-
-		// Limites de cenário (hardcoded)
-		rb.position = new Vector3(Mathf.Clamp (rb.position.x, 70, 450),
-									rb.position.y,
-									Mathf.Clamp (rb.position.z, 10, 489));
+		var movement = new Vector3(-leftX*moveSpeed, rb.velocity.y, -leftY*moveSpeed);
+		rb.velocity = movement;
+		//rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
+		anim.SetFloat("Speed", movement.magnitude/moveSpeed);
 	}
 
 	// Virar personagem
 	void Turn(){
 		var rZ = Input.GetAxis("Horizontal_2");
         var rX = Input.GetAxis("Vertical_2");
-		var direction = new Vector3(-rX, 0, rZ);
+		var direction = new Vector3(-rZ, 0, -rX);
 		if(direction != Vector3.zero)
 			rb.transform.forward = direction;
 	}
@@ -72,8 +74,9 @@ public class ControleTeclado : MonoBehaviour {
 
 		// Atirar
 		if(Input.GetButtonDown("Fire1") && timeToShoot <= 0){
+			shootSFX.Play();
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
-//			shot.GetComponent<Bullet>().SetParentName(this.name);
+			shot.transform.Translate(bulletOffset);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			timeToShoot = shotDelay;
@@ -87,9 +90,8 @@ public class ControleTeclado : MonoBehaviour {
 
 		if(Input.GetButtonDown("Fire2") && timeToShoot2 <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
+			shot.transform.Translate(grenadeOffset);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
-			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
-			shot.GetComponent<BulletBomb>().parentColor = bulletColor;
 			timeToShoot2 = shotDelay2;
 		}	
 	}

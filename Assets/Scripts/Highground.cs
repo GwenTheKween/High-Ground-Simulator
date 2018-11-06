@@ -35,7 +35,6 @@ public class Highground : MonoBehaviour {
 
 	// Player entrou no Highground
 	void OnTriggerEnter(Collider other){
-        Debug.Log("entrou");
 		if(other.gameObject.tag == "Player"){
 			var tmp = other.gameObject.GetComponent<PlayerStatus>();
             if (playerCount == 0) tmp.ImTheKing();
