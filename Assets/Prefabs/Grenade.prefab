@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  verticalSpeed: 5
+  verticalSpeed: 150
   gravity: 15
   size: 10
   lifeTime: 10
