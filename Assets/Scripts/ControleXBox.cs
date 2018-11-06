@@ -22,6 +22,9 @@ public class ControleXBox : MonoBehaviour {
 	public float shotDelay2 = 3f;
 	public float protectionTime = 5f;
     public AudioSource shootSFX;
+	public float angle;
+	private float sangle;
+	private float cangle;
 	
 	private static bool didQueryNumOfCtrlrs = false;
 	
@@ -60,6 +63,8 @@ public class ControleXBox : MonoBehaviour {
                 Debug.Log("Apenas em Windows:: Controle 4 conectado: " + XCI.IsPluggedIn(XboxController.Fourth).ToString());
             }
         }
+		sangle = Mathf.Sin(angle*Mathf.PI/180);
+		cangle = Mathf.Cos(angle*Mathf.PI/180);
 		
 	}
 	
@@ -88,15 +93,15 @@ public class ControleXBox : MonoBehaviour {
 		// Movimento no analógico esquerdo
 		var leftX = XCI.GetAxis(XboxAxis.LeftStickX, controller);
         var leftY = XCI.GetAxis(XboxAxis.LeftStickY, controller);
-		var movement = new Vector3(-leftY, 0f, leftX);
+		var movement = new Vector3(leftX*cangle-leftY*sangle, 0f, leftX*sangle + leftY*cangle);
 
 		if(movement.magnitude > deadzone_leftAnalog){
 			rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
 		}
 
-		rb.position = new Vector3(Mathf.Clamp (rb.position.x, 70, 450),
-										rb.position.y,
-										Mathf.Clamp (rb.position.z, 10, 489));
+		//rb.position = new Vector3(Mathf.Clamp (rb.position.x, 8, 490),
+		//								rb.position.y,
+		//								Mathf.Clamp (rb.position.z, 8, 489));
 	}
 
 	// Virar personagem
@@ -104,7 +109,7 @@ public class ControleXBox : MonoBehaviour {
 		// Mira no analógico direito
 		var rightX = XCI.GetAxis(XboxAxis.RightStickX, controller);
         var rightY = XCI.GetAxis(XboxAxis.RightStickY, controller);
-		var direction = new Vector3(-rightY, 0, rightX);
+		var direction = new Vector3(-rightX, 0, -rightY);
 		if(direction.magnitude > deadzone_rightAnalog)
 			rb.transform.forward = direction;
 	}
@@ -118,11 +123,11 @@ public class ControleXBox : MonoBehaviour {
 		// Atirar
 		// O quanto o trigger direito foi apertado
 		if(XCI.GetAxis(XboxAxis.RightTrigger, controller) > deadzone_trigger && timeToShoot <= 0){
+			shootSFX.Play();
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			timeToShoot = shotDelay;
-            shootSFX.Play();
 		}
 	}
 
@@ -135,8 +140,6 @@ public class ControleXBox : MonoBehaviour {
 		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToShoot2 <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
-			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
-			shot.GetComponent<BulletBomb>().parentColor = bulletColor;
 			timeToShoot2 = shotDelay2;
 		}
 	}
@@ -145,6 +148,7 @@ public class ControleXBox : MonoBehaviour {
 	void Invulnerable(){
 		if (protectionCount > 0){
 			protectionCount -= Time.deltaTime;
+			Debug.Log(protectionCount);
 			if (protectionCount <= 0){
 				GetComponent<PlayerStatus>().isProtected = false;
 			}
@@ -158,4 +162,9 @@ public class ControleXBox : MonoBehaviour {
 			effect.transform.SetParent(this.transform);
 		}
 	}
+
+    public void setController(XboxController cont)
+    {
+        controller = cont;
+    }
 }

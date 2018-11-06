@@ -9,9 +9,12 @@ public class CharSelectScript : MonoBehaviour {
     
     public XboxController controller;
     public RenderTexture[] texs;
+    public int playerNum;
+    public GameObject Panel;
 
     private static bool didQueryNumOfCtrlrs = false;
     private bool pressed;
+    private bool chosen;
     private int selected;
     private RawImage me;
 
@@ -21,7 +24,13 @@ public class CharSelectScript : MonoBehaviour {
         selected = 0;
         me = GetComponent<RawImage>();
         me.texture = texs[0];
-        
+        chosen = false;
+
+        if (PlayerSelection.chars == null)PlayerSelection.chars = new int[4];
+        if (PlayerSelection.scores == null) PlayerSelection.scores = new int[4];
+        PlayerSelection.chars[playerNum] = -1;
+        PlayerSelection.scores[playerNum] = 0;
+
         if (!didQueryNumOfCtrlrs)
         {
 
@@ -65,7 +74,7 @@ public class CharSelectScript : MonoBehaviour {
         // Movimento no analógico esquerdo
         var rightX = XCI.GetAxis(XboxAxis.RightStickX, controller);
 
-        if (!pressed && (rightX != 0))
+        if (!pressed && (rightX != 0) && !chosen)
         {
             pressed = true;
             if (rightX > 0) selected = (selected + 1) % texs.Length;
@@ -73,8 +82,19 @@ public class CharSelectScript : MonoBehaviour {
             me.texture = texs[selected];
 
         }
-        else if (pressed && rightX == 0)
+        else if (pressed && rightX == 0 && !chosen) { 
             pressed = false;
+        }else if (!chosen && XCI.GetButton(XboxButton.Start,controller))
+        {
+            PlayerSelection.chars[playerNum] = selected;
+            chosen = true;
+            Panel.SetActive(true);
+        }else if(chosen && XCI.GetButton(XboxButton.B, controller))
+        {
+            PlayerSelection.chars[playerNum] = -1;
+            chosen = false;
+            Panel.SetActive(false);
+        }
 
     }
 }

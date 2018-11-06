@@ -11,36 +11,41 @@ public class BulletBomb : MonoBehaviour {
 	public float verticalSpeed = 5f;
 	public float gravity = 20f;
 	public float size = 10f;
+	public float lifeTime = 10f;
 	public GameObject bomb;
 	public GameObject bulletDetector;
-	public Color parentColor;
 	
 	void Start(){
 		rb = GetComponent<Rigidbody>();
 		transform.localScale = new Vector3(size,size,size);
 		detect = Instantiate(bulletDetector, transform.position, transform.rotation);
 		detect.GetComponent<bulletDetection>().parent = this.gameObject;
+		rb.velocity = new Vector3(0f,verticalSpeed,0f) + transform.forward*speed;
 	}
 
 	// Mover a bala
 	void Update () {
+		if(lifeTime < 0) Destroy(this.gameObject);
+		lifeTime -= Time.deltaTime;
+
 		// Mover a bala em direção e velocidade constante com aplicação de gravidade
-		verticalSpeed -= gravity*Time.deltaTime;
-		rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speed + 
-		(new Vector3(0,verticalSpeed,0)));
-		detect.transform.position = this.transform.position;
+		//verticalSpeed -= gravity*Time.deltaTime;
+		//rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speed + 
+		//(new Vector3(0,verticalSpeed,0)));
+		//detect.transform.position = this.transform.position;
 	}
 
 	// Colisão
 	void OnTriggerEnter(Collider other){
-		if(other.gameObject.name != parentName && other.gameObject.tag != "Detector"){
+		if(other.gameObject.name != parentName && other.gameObject.tag != "Detector" && other.gameObject.tag != "Region"
+												 && other.gameObject.tag != "MapLimit" && other.gameObject.tag != "Turret"){
 			Explode();
 		}
 	}
 
 	public void Explode(){
-		var explode = Instantiate(bomb, transform.position, transform.rotation);
-		explode.GetComponent<MeshRenderer>().material.color = parentColor;
+		speed = 0f;
+		var explode = Instantiate(bomb, transform.position, Quaternion.identity);
 		Destroy(this.gameObject);
 	}
 

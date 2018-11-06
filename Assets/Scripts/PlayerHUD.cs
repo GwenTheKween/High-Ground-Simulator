@@ -29,16 +29,21 @@ public class PlayerHUD : MonoBehaviour {
 	}
 
 	// Enable the king icon
-	void IHaveTheHighGround(){
+	public void IHaveTheHighGround(){
 		object_king.SetActive(true);
 	}
 
 	// Disable the king icon
-	void LostIt(){
+	public void LostIt(){
 		object_king.SetActive(false);
 	}
 
-	void AddPoints(int pnts){
-		points += pnts;
+	public void SetPoints(int player){
+		text_points.text = PlayerSelection.scores[player].ToString("D7");
 	}
+
+    public void SetName(string name)
+    {
+        text_player_name.text = name;
+    }
 }

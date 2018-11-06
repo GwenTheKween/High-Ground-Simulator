@@ -8,6 +8,8 @@ TagManager:
   - Detector
   - Bomb
   - Region
+  - MapLimit
+  - Turret
   layers:
   - Default
   - TransparentFX

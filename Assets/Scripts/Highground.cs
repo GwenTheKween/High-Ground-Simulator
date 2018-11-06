@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Highground : MonoBehaviour {
 
-	private short[] players;
+	public short[] players;
 	private PlayerStatus[] status;
 	private short playerCount = 0;
 	private float timeToPoint;
@@ -37,10 +37,11 @@ public class Highground : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "Player"){
 			var tmp = other.gameObject.GetComponent<PlayerStatus>();
+            if (playerCount == 0) tmp.ImTheKing();
 			playerCount++;
 			
 			for(int i = 1; i <= 4; i++){
-				if(tmp.namePlayer == "P"+i.ToString()){
+				if(tmp.name == "P"+i.ToString()){
 					players[i-1] += playerCount;
 					status[i-1] = tmp;
 					return;
@@ -55,11 +56,14 @@ public class Highground : MonoBehaviour {
 			playerCount--;
 			
 			for(int i = 1; i <= 4; i++){
-				if(tmp.namePlayer == "P"+i.ToString()){
+				if(tmp.name == "P"+i.ToString()){
 					for(int j = 1; j <= 4; j++){
-						if(players[j-1] > players[i-1])
+						if(players[j-1] > players[i-1]){
 							players[j-1]--;
+							if(players[j-1] == 0) status[j-1].ImTheKing();
+						}
 					}
+                    if (players[i - 1] == 0) tmp.NotTheKing();
 					players[i-1] = -1;
 					return;
 				}
