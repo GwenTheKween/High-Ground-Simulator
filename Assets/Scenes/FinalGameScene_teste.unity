@@ -53,18 +53,18 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 0
+    m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 10
-    m_Resolution: 2
-    m_BakeResolution: 20
-    m_AtlasSize: 512
+    m_Resolution: 4
+    m_BakeResolution: 32
+    m_AtlasSize: 128
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
     m_Padding: 2
-    m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000,
+    m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000,
       type: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
@@ -258,8 +258,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.1
+  far clip plane: 2000
   field of view: 60
   orthographic: 1
   orthographic size: 318.9783
@@ -489,7 +489,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 226465084}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 6.73, y: -1.12, z: -1.76}
+  m_LocalPosition: {x: 7.8, y: -1.12, z: -1.8}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 759123418}
@@ -2879,7 +2879,8 @@ Prefab:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6400000, guid: ca1f2c1c608f45b4a863fc993f26e02f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ca1f2c1c608f45b4a863fc993f26e02f, type: 3}
   m_IsPrefabAsset: 0
 --- !u!1 &1272195636
@@ -3903,6 +3904,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4115507460403994, guid: 2e0164641488bd14a94094e6f51a1cd7,
     type: 2}
   m_PrefabInternal: {fileID: 7932197}
+--- !u!1 &2046453342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: ca1f2c1c608f45b4a863fc993f26e02f,
+    type: 3}
+  m_PrefabInternal: {fileID: 1248634222}
+--- !u!65 &2046453343
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046453342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2013028, y: 1.0335534, z: 4.296581}
+  m_Center: {x: -0.041222725, y: 0.15975808, z: 2.1482904}
 --- !u!1001 &2052474208
 Prefab:
   m_ObjectHideFlags: 0

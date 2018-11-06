@@ -51,16 +51,17 @@ public class ControleTeclado : MonoBehaviour {
 	void Move(){
 		var leftX = Input.GetAxis("Horizontal");
         var leftY = Input.GetAxis("Vertical");
-		var movement = new Vector3(-leftY, 0f, leftX);
-		rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
-		anim.SetFloat("Speed", movement.magnitude);
+		var movement = new Vector3(-leftX*moveSpeed, rb.velocity.y, -leftY*moveSpeed);
+		rb.velocity = movement;
+		//rb.MovePosition(rb.position + movement*moveSpeed*Time.deltaTime);
+		anim.SetFloat("Speed", movement.magnitude/moveSpeed);
 	}
 
 	// Virar personagem
 	void Turn(){
 		var rZ = Input.GetAxis("Horizontal_2");
         var rX = Input.GetAxis("Vertical_2");
-		var direction = new Vector3(-rX, 0, rZ);
+		var direction = new Vector3(-rZ, 0, -rX);
 		if(direction != Vector3.zero)
 			rb.transform.forward = direction;
 	}

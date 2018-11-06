@@ -14,13 +14,13 @@ public class BulletBomb : MonoBehaviour {
 	public float lifeTime = 10f;
 	public GameObject bomb;
 	public GameObject bulletDetector;
-	public Color parentColor;
 	
 	void Start(){
 		rb = GetComponent<Rigidbody>();
 		transform.localScale = new Vector3(size,size,size);
 		detect = Instantiate(bulletDetector, transform.position, transform.rotation);
 		detect.GetComponent<bulletDetection>().parent = this.gameObject;
+		rb.velocity = new Vector3(0f,verticalSpeed,0f) + transform.forward*speed;
 	}
 
 	// Mover a bala
@@ -29,10 +29,10 @@ public class BulletBomb : MonoBehaviour {
 		lifeTime -= Time.deltaTime;
 
 		// Mover a bala em direção e velocidade constante com aplicação de gravidade
-		verticalSpeed -= gravity*Time.deltaTime;
-		rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speed + 
-		(new Vector3(0,verticalSpeed,0)));
-		detect.transform.position = this.transform.position;
+		//verticalSpeed -= gravity*Time.deltaTime;
+		//rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speed + 
+		//(new Vector3(0,verticalSpeed,0)));
+		//detect.transform.position = this.transform.position;
 	}
 
 	// Colisão
@@ -46,7 +46,6 @@ public class BulletBomb : MonoBehaviour {
 	public void Explode(){
 		speed = 0f;
 		var explode = Instantiate(bomb, transform.position, Quaternion.identity);
-		explode.GetComponent<MeshRenderer>().material.color = parentColor;
 		Destroy(this.gameObject);
 	}
 

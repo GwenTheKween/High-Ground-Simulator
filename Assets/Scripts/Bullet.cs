@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour {
 		transform.localScale = new Vector3(size,size,size);
 		var particles = Instantiate(spawnParticle,transform.position,transform.rotation);
 		particles.transform.localScale = new Vector3(size,size,size);
+		rb.velocity = transform.forward*speed;
 	}
 
 	// Mover a bala
@@ -26,7 +27,7 @@ public class Bullet : MonoBehaviour {
 
 		// Mover a bala em direção e velocidade constante
 		//transform.position += transform.forward * Time.deltaTime * speed;
-		rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speed);
+		//rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speed);
 	}
 
 	// Colisão
