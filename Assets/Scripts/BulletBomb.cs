@@ -18,8 +18,8 @@ public class BulletBomb : MonoBehaviour {
 	void Start(){
 		rb = GetComponent<Rigidbody>();
 		transform.localScale = new Vector3(size,size,size);
-		detect = Instantiate(bulletDetector, transform.position, transform.rotation);
-		detect.GetComponent<BulletDetection>().parent = this.gameObject;
+		//detect = Instantiate(bulletDetector, transform.position, transform.rotation, transform);
+		//detect.transform.parent = this.gameObject.transform;
 		rb.velocity = new Vector3(0f,verticalSpeed,0f) + transform.forward*speed;
 	}
 
@@ -45,7 +45,7 @@ public class BulletBomb : MonoBehaviour {
 
 	public void Explode(){
 		speed = 0f;
-		var explode = Instantiate(bomb, transform.position, Quaternion.identity);
+		Instantiate(bomb, transform.position, Quaternion.identity);
 		Destroy(this.gameObject);
 	}
 

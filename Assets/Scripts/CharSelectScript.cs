@@ -9,8 +9,10 @@ public class CharSelectScript : MonoBehaviour {
     
     public XboxController controller;
     public RenderTexture[] texs;
+    public string[] names;
     public int playerNum;
     public GameObject Panel;
+    public Text nameText;
 
     private static bool didQueryNumOfCtrlrs = false;
     private bool pressed;
@@ -24,9 +26,13 @@ public class CharSelectScript : MonoBehaviour {
         selected = 0;
         me = GetComponent<RawImage>();
         me.texture = texs[0];
+        nameText.text = names[0];
         chosen = false;
 
-        if (PlayerSelection.chars == null)PlayerSelection.chars = new int[4];
+        if (PlayerSelection.chars == null){
+			PlayerSelection.chars = new int[4];
+			PlayerSelection.count = 0;
+		}
         if (PlayerSelection.scores == null) PlayerSelection.scores = new int[4];
         PlayerSelection.chars[playerNum] = -1;
         PlayerSelection.scores[playerNum] = 0;
@@ -80,18 +86,20 @@ public class CharSelectScript : MonoBehaviour {
             if (rightX > 0) selected = (selected + 1) % texs.Length;
             else selected = (selected + texs.Length - 1) % texs.Length;
             me.texture = texs[selected];
-
+            nameText.text = names[selected];
         }
         else if (pressed && rightX == 0 && !chosen) { 
             pressed = false;
         }else if (!chosen && XCI.GetButton(XboxButton.Start,controller))
         {
             PlayerSelection.chars[playerNum] = selected;
+			PlayerSelection.count++;
             chosen = true;
             Panel.SetActive(true);
         }else if(chosen && XCI.GetButton(XboxButton.B, controller))
         {
             PlayerSelection.chars[playerNum] = -1;
+			PlayerSelection.count--;
             chosen = false;
             Panel.SetActive(false);
         }

@@ -729,14 +729,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620853118555944}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 765, y: -13, z: 250}
+  m_LocalRotation: {x: 0, y: 0.9659258, z: 0, w: 0.2588191}
+  m_LocalPosition: {x: -18, y: 20, z: 376}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4845892080816666}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 150, z: 0}
 --- !u!4 &4478325655922762
 Transform:
   m_ObjectHideFlags: 1
@@ -1159,8 +1159,9 @@ MonoBehaviour:
   protectedY: -10
   isProtected: 0
   hasProtection: 1
-  deathPenalty: 10
+  deathPenalty: 25
   Teleport: {fileID: 1971764036424386, guid: 6673586a68638d846a1762680ace63c3, type: 2}
+  ScriptHUD: {fileID: 0}
 --- !u!114 &114560017652621918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1179,11 +1180,11 @@ MonoBehaviour:
   bulletOffset: {x: 0, y: 14, z: 25}
   grenadeOffset: {x: 0, y: 25, z: 15}
   bulletColor: {r: 0, g: 0, b: 1, a: 1}
-  shotDelay: 1
-  shotDelay2: 3
+  shotDelay: 0.7
+  shotDelay2: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
-  velocidadeRotacao: 8
+  velocidadeRotacao: 20
 --- !u!114 &114868657679556250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1200,16 +1201,16 @@ MonoBehaviour:
   deadzone_rightAnalog: 0.1
   deadzone_trigger: 0.1
   moveSpeed: 100
-  bullet: {fileID: 1805911928337416, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
+  bullet: {fileID: 1559832785988782, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
   bomb: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6, type: 2}
   protEffect: {fileID: 1891489911677058, guid: 7e1a0d4fa691a174e84706d22aa525a3, type: 2}
   bulletColor: {r: 0, g: 0, b: 1, a: 1}
-  shotDelay: 1
-  shotDelay2: 3
+  shotDelay: 0.7
+  shotDelay2: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
   angle: 180
-  velocidadeRotacao: 8
+  velocidadeRotacao: 20
 --- !u!137 &137033773666895096
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

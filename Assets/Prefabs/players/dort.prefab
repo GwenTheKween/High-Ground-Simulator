@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 82116225141797982}
   - component: {fileID: 114555493239291064}
   m_Layer: 0
-  m_Name: Dort
+  m_Name: dort
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -729,14 +729,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620853118555944}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 765, y: -13, z: 50}
+  m_LocalRotation: {x: 0, y: 0.9659258, z: 0, w: 0.2588191}
+  m_LocalPosition: {x: 132, y: 20, z: 376}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4845892080816666}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 150, z: 0}
 --- !u!4 &4478325655922762
 Transform:
   m_ObjectHideFlags: 1
@@ -1159,15 +1159,16 @@ MonoBehaviour:
   protectedY: -10
   isProtected: 0
   hasProtection: 1
-  deathPenalty: 10
+  deathPenalty: 25
   Teleport: {fileID: 1971764036424386, guid: 6673586a68638d846a1762680ace63c3, type: 2}
+  ScriptHUD: {fileID: 0}
 --- !u!114 &114560017652621918
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620853118555944}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b027599ed4400aa41b40a2c7144321b9, type: 3}
   m_Name: 
@@ -1179,11 +1180,11 @@ MonoBehaviour:
   bulletOffset: {x: 0, y: 14, z: 25}
   grenadeOffset: {x: 0, y: 25, z: 15}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
-  shotDelay: 1
-  shotDelay2: 3
+  shotDelay: 0.7
+  shotDelay2: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
-  velocidadeRotacao: 8
+  velocidadeRotacao: 20
 --- !u!114 &114868657679556250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1204,12 +1205,12 @@ MonoBehaviour:
   bomb: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6, type: 2}
   protEffect: {fileID: 1891489911677058, guid: 7e1a0d4fa691a174e84706d22aa525a3, type: 2}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
-  shotDelay: 1
-  shotDelay2: 3
+  shotDelay: 0.7
+  shotDelay2: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
   angle: 180
-  velocidadeRotacao: 8
+  velocidadeRotacao: 20
 --- !u!137 &137033773666895096
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

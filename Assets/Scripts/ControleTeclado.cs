@@ -9,6 +9,8 @@ public class ControleTeclado : MonoBehaviour {
 	private float timeToShoot2;
 	private float protectionCount;
 	private Animator anim;
+	private PlayerStatus stat;
+
 	public float moveSpeed = 100f;
 	public GameObject bullet;
 	public GameObject bomb;
@@ -28,6 +30,7 @@ public class ControleTeclado : MonoBehaviour {
 		protectionCount = 0;
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponentInChildren<Animator>();
+		stat = GetComponent<PlayerStatus>();
 	}
 	
 	// Update is called once per frame
@@ -86,20 +89,24 @@ public class ControleTeclado : MonoBehaviour {
 			shot.transform.Translate(bulletOffset);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
+			shot.GetComponent<Bullet>().stat = stat;
 			timeToShoot = shotDelay;
 		}
 	}
 
 	// Arremessar Granada
 	void Grenade(){
-		if(timeToShoot2 > 0) 
+		if(timeToShoot2 > 0){
 			timeToShoot2 -= Time.deltaTime;
+			stat.UpdateColorPercentage((shotDelay2-timeToShoot2)/shotDelay2);
+		}
 
 		if(Input.GetButtonDown("Fire2") && timeToShoot2 <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
 			shot.transform.Translate(grenadeOffset);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
 			timeToShoot2 = shotDelay2;
+			stat.UpdateColorPercentage((shotDelay2-timeToShoot2)/shotDelay2);
 		}	
 	}
 
@@ -108,11 +115,11 @@ public class ControleTeclado : MonoBehaviour {
 		if (protectionCount > 0){
 			protectionCount -= Time.deltaTime;
 			if (protectionCount <= 0){
-				GetComponent<PlayerStatus>().isProtected = false;
+				stat.isProtected = false;
 			}
 		}
 
-		if (Input.GetButtonDown("Jump") && GetComponent<PlayerStatus>().useProtection()){
+		if (Input.GetButtonDown("Jump") && stat.useProtection()){
 			protectionCount = protectionTime;
 			var effect = Instantiate(protEffect,transform.position,transform.rotation);
 			effect.transform.SetParent(this.transform);

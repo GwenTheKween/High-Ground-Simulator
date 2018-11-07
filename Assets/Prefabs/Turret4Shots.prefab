@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987c136e9e495e64ab0be4c11aa16ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayEntreCargas: 1
+  delayEntreCargas: 1.5
   shotDelay: 0.2
   bullet: {fileID: 1805911928337416, guid: 3943794fcd06eed4c9372c0272c2493f, type: 2}
   bulletColor: {r: 1, g: 1, b: 1, a: 0}

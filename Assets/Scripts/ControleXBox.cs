@@ -6,13 +6,19 @@ using XboxCtrlrInput;
 public class ControleXBox : MonoBehaviour {
 
 	private Rigidbody rb;
+	private float timeToShoot;
+	private float timeToShoot2;
+	private float protectionCount;
+	private PlayerStatus stat;
+	private float sangle;
+	private float cangle;
+	private Animator anim;
+
+	
 	public XboxController controller;
 	public float deadzone_leftAnalog = 0.1f;
 	public float deadzone_rightAnalog = 0.1f;
 	public float deadzone_trigger = 0.1f;
-	private float timeToShoot;
-	private float timeToShoot2;
-	private float protectionCount;
 	public float moveSpeed = 100f;
 	public GameObject bullet;
 	public GameObject bomb;
@@ -23,9 +29,6 @@ public class ControleXBox : MonoBehaviour {
 	public float protectionTime = 5f;
     public AudioSource shootSFX;
 	public float angle;
-	private float sangle;
-	private float cangle;
-	private Animator anim;
 	public float velocidadeRotacao = 8f;
 	
 	private static bool didQueryNumOfCtrlrs = false;
@@ -69,7 +72,7 @@ public class ControleXBox : MonoBehaviour {
 		cangle = Mathf.Cos(angle*Mathf.PI/180);
 		
 		anim = GetComponentInChildren<Animator>();
-		
+		stat = GetComponent<PlayerStatus>();
 	}
 	
 	// Update is called once per frame
@@ -140,20 +143,24 @@ public class ControleXBox : MonoBehaviour {
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
+			shot.GetComponent<Bullet>().stat = stat;
 			timeToShoot = shotDelay;
 		}
 	}
 
 	// Arremessar Granada
 	void Grenade(){
-		if(timeToShoot2 > 0) 
+		if(timeToShoot2 > 0){ 
 			timeToShoot2 -= Time.deltaTime;
+			stat.UpdateColorPercentage((shotDelay2-timeToShoot2)/shotDelay2);
+		}
 
 		// O quanto o trigger esquerdo foi apertado
 		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToShoot2 <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
 			timeToShoot2 = shotDelay2;
+			stat.UpdateColorPercentage((shotDelay2-timeToShoot2)/shotDelay2);
 		}
 	}
 

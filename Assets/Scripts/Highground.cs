@@ -27,7 +27,7 @@ public class Highground : MonoBehaviour {
 		if(timeToPoint <= 0){
 			for(int i = 0; i < 4; i++){
 				if(players[i] == 0)
-					status[i].IncreaseScore(pointStep);
+					status[i].ChangeScore(pointStep);
 			}
 			timeToPoint = delayPoint;
 		}

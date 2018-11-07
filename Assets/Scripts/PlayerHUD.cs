@@ -13,6 +13,7 @@ public class PlayerHUD : MonoBehaviour {
 	public Text text_points;
 	public Text text_player_name;
 	public GameObject object_king;
+	public GameObject object_first;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +26,18 @@ public class PlayerHUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		int max = 0;
+
+        for(int i = 0; i < 4; i++){
+            if(PlayerSelection.scores[i] > max) 
+				max = PlayerSelection.scores[i];
+        }
+
+		if(PlayerSelection.scores[player_number-1] == max){
+			SetFirst(true);
+		}else{
+			SetFirst(false);
+		}
 	}
 
 	// Enable the king icon
@@ -46,4 +58,21 @@ public class PlayerHUD : MonoBehaviour {
     {
         text_player_name.text = name;
     }
+	
+	public void SetFirst(bool first){
+		object_first.SetActive(first);
+	}
+
+	public void SetColor(Color cor){
+		this.color = cor;
+		image_back_border.color = color;
+		image_king_border.color = color;
+	}
+
+	public void UpdateColorPercentage(float perc){
+		var tmp = color*perc + Color.red*(1-perc);
+		tmp.a = 1f;
+		image_back_border.color = tmp;
+		image_king_border.color = tmp;
+	}
 }

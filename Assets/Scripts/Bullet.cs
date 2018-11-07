@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
 
 	private Rigidbody rb;
 	private string parentName;
+	public PlayerStatus stat;
 	public float speed = 500f;
 	public float size = 6f;
 	public float lifeTime = 10f;
@@ -39,7 +40,7 @@ public class Bullet : MonoBehaviour {
 			particles.transform.localScale = new Vector3(size,size,size);
 			
 			if(other.gameObject.tag == "Player" && !other.GetComponent<PlayerStatus>().isProtected){
-				other.gameObject.GetComponent<PlayerStatus>().Death();
+				other.gameObject.GetComponent<PlayerStatus>().Death(stat);
 			}
 		}
 	}
