@@ -22,6 +22,8 @@ public class ControleXBox : MonoBehaviour {
 	public float moveSpeed = 100f;
 	public GameObject bullet;
 	public GameObject bomb;
+	public Vector3 bulletOffset;
+	public Vector3 grenadeOffset;
 	public GameObject protEffect;
 	public Color bulletColor;
 	public float shotDelay = 1f;
@@ -141,6 +143,7 @@ public class ControleXBox : MonoBehaviour {
 		if(XCI.GetAxis(XboxAxis.RightTrigger, controller) > deadzone_trigger && timeToShoot <= 0){
 			shootSFX.Play();
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
+			shot.transform.Translate(bulletOffset);
 			shot.GetComponent<Bullet>().SetParentName(this.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			shot.GetComponent<Bullet>().stat = stat;
@@ -158,6 +161,7 @@ public class ControleXBox : MonoBehaviour {
 		// O quanto o trigger esquerdo foi apertado
 		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToShoot2 <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
+			shot.transform.Translate(grenadeOffset);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
 			timeToShoot2 = shotDelay2;
 			stat.UpdateColorPercentage((shotDelay2-timeToShoot2)/shotDelay2);
