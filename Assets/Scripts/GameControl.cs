@@ -100,7 +100,7 @@ public class GameControl : MonoBehaviour {
             {
                 final_back_button.SetActive(true);
                 stage = 5;
-				//Time.timeScale = 0;
+				Time.timeScale = 0;
             }
         }
 	}
