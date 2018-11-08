@@ -1183,7 +1183,9 @@ MonoBehaviour:
   grenadeOffset: {x: 0, y: 25, z: 15}
   bulletColor: {r: 0, g: 0, b: 1, a: 1}
   shotDelay: 0.7
-  shotDelay2: 2
+  bulletsToShoot: 3
+  bulletFrequency: 0.05
+  bombDelay: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
   velocidadeRotacao: 20
@@ -1210,7 +1212,9 @@ MonoBehaviour:
   protEffect: {fileID: 1891489911677058, guid: 7e1a0d4fa691a174e84706d22aa525a3, type: 2}
   bulletColor: {r: 0, g: 0, b: 1, a: 1}
   shotDelay: 0.7
-  shotDelay2: 2
+  bulletsToShoot: 3
+  bulletFrequency: 0.05
+  bombDelay: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
   angle: 180

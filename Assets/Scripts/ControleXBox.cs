@@ -10,7 +10,7 @@ public class ControleXBox : MonoBehaviour {
 	private float timeToNextBullet;
 	private int bulletCount;
 
-	private float timeToShoot2;
+	private float timeToBomb;
 	private float protectionCount;
 	private PlayerStatus stat;
 	private float sangle;
@@ -33,7 +33,7 @@ public class ControleXBox : MonoBehaviour {
 	public int bulletsToShoot = 3;
 	public float bulletFrequency = 0.05f;
 
-	public float shotDelay2 = 3f;
+	public float bombDelay = 2f;
 	public float protectionTime = 5f;
     public AudioSource shootSFX;
 	public float angle;
@@ -46,7 +46,7 @@ public class ControleXBox : MonoBehaviour {
 		timeToShoot = 0;
 		rb = GetComponent<Rigidbody>();
 
-		timeToShoot2 = 0;
+		timeToBomb = 0;
 		
 		if(!didQueryNumOfCtrlrs){
 			
@@ -173,18 +173,18 @@ public class ControleXBox : MonoBehaviour {
 
 	// Arremessar Granada
 	void Grenade(){
-		if(timeToShoot2 > 0){ 
-			timeToShoot2 -= Time.deltaTime;
-			stat.UpdateColorPercentage((shotDelay2-timeToShoot2)/shotDelay2);
+		if(timeToBomb > 0){ 
+			timeToBomb -= Time.deltaTime;
+			stat.UpdateColorPercentage((bombDelay-timeToBomb)/bombDelay);
 		}
 
 		// O quanto o trigger esquerdo foi apertado
-		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToShoot2 <= 0){
+		if(XCI.GetAxis(XboxAxis.LeftTrigger, controller) > deadzone_trigger && timeToBomb <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
 			shot.transform.Translate(grenadeOffset);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
-			timeToShoot2 = shotDelay2;
-			stat.UpdateColorPercentage((shotDelay2-timeToShoot2)/shotDelay2);
+			timeToBomb = bombDelay;
+			stat.UpdateColorPercentage((bombDelay-timeToBomb)/bombDelay);
 		}
 	}
 

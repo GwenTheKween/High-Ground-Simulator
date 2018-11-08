@@ -20,6 +20,8 @@ public class TurretFollowPlayer : MonoBehaviour {
 	void FixedUpdate () {
 		players = GameObject.FindGameObjectsWithTag("Player");
 		
+		//Debug.Log("Tamanho de scores:" + PlayerSelection.scores.Length);
+		
 		Transform[] alvos = new Transform[players.Length];
 		int i;
 		for(i = 0; i < players.Length; i++)
