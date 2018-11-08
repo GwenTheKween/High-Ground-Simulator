@@ -11,9 +11,9 @@ public class GameControl : MonoBehaviour {
     public Text final_game_player;
     public GameObject final_back_button;
     public Text Timer;
-
+    public float gameTime = 300f;
+    public float seconds_left;
     private AudioSource AS;
-    private float seconds_left;
     private int stage;
     private int mx_score;
     private string players;
@@ -23,7 +23,7 @@ public class GameControl : MonoBehaviour {
 	void Start () {
         AS = GetComponent<AudioSource>();
         AS.volume = VolumeScript.bgm;
-        seconds_left = 300;
+        seconds_left = gameTime;
         stage = 0;
 	}
 	
@@ -34,7 +34,7 @@ public class GameControl : MonoBehaviour {
         {
             Timer.text = ((int)seconds_left / 60).ToString() + ":" + (((int)seconds_left) % 60).ToString("D2");
         }
-        if(seconds_left <= 0)
+        if(seconds_left <= 0 || stage == 5)
         {
             if(stage == 0)
             {
@@ -100,7 +100,8 @@ public class GameControl : MonoBehaviour {
             {
                 final_back_button.SetActive(true);
                 stage = 5;
-				//Time.timeScale = 0;
+                PlayerSelection.count = 0;
+                seconds_left = gameTime;
             }
         }
 	}

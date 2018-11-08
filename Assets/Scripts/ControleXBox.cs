@@ -100,7 +100,6 @@ public class ControleXBox : MonoBehaviour {
 
 		// Invulnerabilidade
 		Invulnerable();
-		
 	}
 
 	// Mover personagem
