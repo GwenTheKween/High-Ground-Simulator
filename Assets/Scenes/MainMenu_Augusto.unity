@@ -7124,7 +7124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fail: {fileID: 1920988297}
   Worked: {fileID: 1834704708}
-  minimum: 2
+  minimum: 1
 --- !u!1 &1837301073
 GameObject:
   m_ObjectHideFlags: 0
