@@ -22,9 +22,12 @@ public class PlayerSpawnCharacter : MonoBehaviour{
                 Quaternion.identity
                 );
             pref.GetComponent<ControleXBox>().setController(controller);
-            HUD.GetComponent<PlayerHUD>().SetName((playerNum+1).ToString());
+            var tmpHUD = HUD.GetComponent<PlayerHUD>();
+            tmpHUD.SetName((playerNum+1).ToString());
+            tmpHUD.SetColor(prefabs[PlayerSelection.chars[playerNum]].GetComponent<ControleXBox>().bulletColor);
             pref.GetComponent<PlayerStatus>().SetHUD(HUD.GetComponent<PlayerHUD>());
             pref.GetComponent<PlayerStatus>().SetName(playerNum);
+            Debug.Log(playerNum);
         }
         else
         {// desativa o  score do jogador

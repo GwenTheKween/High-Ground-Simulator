@@ -16,7 +16,7 @@ public class BulletExplosion : MonoBehaviour {
 	// Colisão
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "Player"){
-			other.gameObject.GetComponent<PlayerStatus>().Death();
+			other.gameObject.GetComponent<PlayerStatus>().Death(null);
 		}
 	}
 

@@ -108,5 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3a109c651cf9d4fa81156eaa5c26f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointStep: 1
+  players: 
+  pointStep: 10
   delayPoint: 1

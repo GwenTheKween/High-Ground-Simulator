@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu_Augusto.unity
     guid: 9369bdbc690e64b4985d473d482ca63c
   - enabled: 1
-    path: Assets/Scenes/FinalGameScene.unity
-    guid: 26fdb30518eda6143bc7c0704db9d13b
+    path: Assets/Scenes/FinalGameScene_teste.unity
+    guid: a22a8b60365f6f844af306e4220375cf
   m_configObjects: {}

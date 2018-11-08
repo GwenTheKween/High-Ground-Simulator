@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletDetection : MonoBehaviour {
+public class bulletDetection : MonoBehaviour {
 
 	public GameObject parent;
 
