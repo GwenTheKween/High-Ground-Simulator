@@ -8,7 +8,7 @@ public class ControleTeclado : MonoBehaviour {
 	private float timeToShoot;
 	private float timeToNextBullet;
 	private int bulletCount;
-	private float timeToShoot2;
+	private float timeToBomb;
 	private float protectionCount;
 	private Animator anim;
 	private PlayerStatus stat;
@@ -23,14 +23,14 @@ public class ControleTeclado : MonoBehaviour {
 	public float shotDelay = 1f;
 	public int bulletsToShoot = 3;
 	public float bulletFrequency = 0.05f;
-	public float shotDelay2 = 3f;
+	public float bombDelay = 2f;
 	public float protectionTime = 5f;
 	public AudioSource shootSFX;
 	public float velocidadeRotacao = 8f;
 	
 	void Start(){
 		timeToShoot = 0;
-		timeToShoot2 = 0;
+		timeToBomb = 0;
 		protectionCount = 0;
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponentInChildren<Animator>();
@@ -114,17 +114,17 @@ public class ControleTeclado : MonoBehaviour {
 
 	// Arremessar Granada
 	void Grenade(){
-		if(timeToShoot2 > 0){
-			timeToShoot2 -= Time.deltaTime;
-			stat.UpdateColorPercentage((shotDelay2-timeToShoot2)/shotDelay2);
+		if(timeToBomb > 0){
+			timeToBomb -= Time.deltaTime;
+			stat.UpdateColorPercentage((bombDelay-timeToBomb)/bombDelay);
 		}
 
-		if(Input.GetButtonDown("Fire2") && timeToShoot2 <= 0){
+		if(Input.GetButtonDown("Fire2") && timeToBomb <= 0){
 			var shot = Instantiate(bomb, transform.position, transform.rotation);
 			shot.transform.Translate(grenadeOffset);
 			shot.GetComponent<BulletBomb>().SetParentName(this.gameObject.name);
-			timeToShoot2 = shotDelay2;
-			stat.UpdateColorPercentage((shotDelay2-timeToShoot2)/shotDelay2);
+			timeToBomb = bombDelay;
+			stat.UpdateColorPercentage((bombDelay-timeToBomb)/bombDelay);
 		}	
 	}
 

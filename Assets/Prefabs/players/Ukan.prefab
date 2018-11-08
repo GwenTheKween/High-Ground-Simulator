@@ -1185,7 +1185,7 @@ MonoBehaviour:
   shotDelay: 0.7
   bulletsToShoot: 3
   bulletFrequency: 0.05
-  shotDelay2: 2
+  bombDelay: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
   velocidadeRotacao: 20
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   shotDelay: 0.7
   bulletsToShoot: 3
   bulletFrequency: 0.05
-  shotDelay2: 2
+  bombDelay: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
   angle: 180
