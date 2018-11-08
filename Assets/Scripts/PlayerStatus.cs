@@ -29,17 +29,19 @@ public class PlayerStatus : MonoBehaviour {
 		if(transform.position.y > protectedY && !isProtected)
 		{
 			if(stat != null) stat.ChangeScore(killPoints);
-			transform.position = new Vector3(765,-13,rb.position.z);
-            Instantiate(Teleport, here.position, Quaternion.identity);
-			//PlayerSelection.scores[PlayerNum] -= deathPenalty;
-			//if(PlayerSelection.scores[PlayerNum] < 0)
-			//	PlayerSelection.scores[PlayerNum] = 0;
-			//ScriptHUD.SetPoints(PlayerNum);
-			
+			Teleporte();
 			ChangeScore(-deathPenalty);
-			hasProtection = true;
 			
 		}
+	}
+	
+	public void Teleporte(){
+		transform.position = new Vector3(765,-13,rb.position.z);
+        Instantiate(Teleport, here.position, Quaternion.identity);
+		hasProtection = true;
+		
+		
+		
 	}
 
 	public bool useProtection(){

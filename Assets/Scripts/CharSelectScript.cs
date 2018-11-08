@@ -78,17 +78,17 @@ public class CharSelectScript : MonoBehaviour {
     {
 
         // Movimento no analógico esquerdo
-        var rightX = XCI.GetAxis(XboxAxis.RightStickX, controller);
+        var leftX = XCI.GetAxis(XboxAxis.LeftStickX, controller);
 
-        if (!pressed && (rightX != 0) && !chosen)
+        if (!pressed && (leftX != 0) && !chosen)
         {
             pressed = true;
-            if (rightX > 0) selected = (selected + 1) % texs.Length;
+            if (leftX > 0) selected = (selected + 1) % texs.Length;
             else selected = (selected + texs.Length - 1) % texs.Length;
             me.texture = texs[selected];
             nameText.text = names[selected];
         }
-        else if (pressed && rightX == 0 && !chosen) { 
+        else if (pressed && leftX == 0 && !chosen) { 
             pressed = false;
         }else if (!chosen && XCI.GetButton(XboxButton.Start,controller))
         {
