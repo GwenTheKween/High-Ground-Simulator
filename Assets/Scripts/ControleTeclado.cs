@@ -6,6 +6,8 @@ public class ControleTeclado : MonoBehaviour {
 
 	private Rigidbody rb;
 	private float timeToShoot;
+	private float timeToNextBullet;
+	private int bulletCount;
 	private float timeToShoot2;
 	private float protectionCount;
 	private Animator anim;
@@ -19,6 +21,8 @@ public class ControleTeclado : MonoBehaviour {
 	public Vector3 grenadeOffset;
 	public Color bulletColor;
 	public float shotDelay = 1f;
+	public int bulletsToShoot = 3;
+	public float bulletFrequency = 0.05f;
 	public float shotDelay2 = 3f;
 	public float protectionTime = 5f;
 	public AudioSource shootSFX;
@@ -79,8 +83,20 @@ public class ControleTeclado : MonoBehaviour {
 	// Atirar com a arma
 	void Shoot(){
 		// Tempo entre tiros
-		if(timeToShoot > 0) 
+		if(timeToShoot > 0){
 			timeToShoot -= Time.deltaTime;
+			timeToNextBullet -= Time.deltaTime;
+			if(timeToNextBullet < 0 && bulletCount > 0){
+				shootSFX.Play();
+				var shot = Instantiate(bullet, transform.position, transform.rotation);
+				shot.transform.Translate(bulletOffset);
+				shot.GetComponent<Bullet>().SetParentName(this.name);
+				shot.GetComponent<MeshRenderer>().material.color = bulletColor;
+				shot.GetComponent<Bullet>().stat = stat;
+				bulletCount--;
+				timeToNextBullet = bulletFrequency;
+			}
+		}
 
 		// Atirar
 		if(Input.GetButtonDown("Fire1") && timeToShoot <= 0){
@@ -91,6 +107,8 @@ public class ControleTeclado : MonoBehaviour {
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			shot.GetComponent<Bullet>().stat = stat;
 			timeToShoot = shotDelay;
+			timeToNextBullet = bulletFrequency;
+			bulletCount = bulletsToShoot-1;
 		}
 	}
 
