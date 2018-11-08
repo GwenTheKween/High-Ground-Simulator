@@ -9,12 +9,14 @@ public class MenuCommands : MonoBehaviour {
 	public GameObject pausePanel;
 	public GameObject endPanel;
 	public GameObject input;
-	private GameControl gameControl;
 	public XboxController controller;
+	private GameControl gameControl;
+	private AudioSource AS;
 
 	// Use this for initialization
 	void Start () {
 		gameControl = input.GetComponent<GameControl>();
+		AS = input.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -23,11 +25,17 @@ public class MenuCommands : MonoBehaviour {
 			if(!pausePanel.activeSelf){
 				pausePanel.SetActive(true);
 				Pause();
+				AS.Pause();
 			}
-			else Hide();
+			else {
+				Hide();
+				AS.UnPause();
+			}
 		}
-		if (endPanel.activeSelf)
+		if (endPanel.activeSelf){
+			AS.Stop();
 			Pause();
+		}
 	}
 
 	public void Pause () {

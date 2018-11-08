@@ -730,7 +730,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620853118555944}
   m_LocalRotation: {x: 0, y: 0.9659258, z: 0, w: 0.2588191}
-  m_LocalPosition: {x: 747.8, y: -8, z: 447.6}
+  m_LocalPosition: {x: 132, y: 20, z: 376}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4845892080816666}
@@ -1183,6 +1183,8 @@ MonoBehaviour:
   grenadeOffset: {x: 0, y: 25, z: 15}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
   shotDelay: 0.7
+  bulletsToShoot: 3
+  bulletFrequency: 0.05
   shotDelay2: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
@@ -1209,7 +1211,9 @@ MonoBehaviour:
   grenadeOffset: {x: 0, y: 25, z: 15}
   protEffect: {fileID: 1891489911677058, guid: 7e1a0d4fa691a174e84706d22aa525a3, type: 2}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
-  shotDelay: 0.7
+  shotDelay: 1
+  bulletsToShoot: 3
+  bulletFrequency: 0.05
   shotDelay2: 2
   protectionTime: 2
   shootSFX: {fileID: 82116225141797982}
