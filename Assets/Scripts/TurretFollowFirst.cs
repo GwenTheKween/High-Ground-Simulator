@@ -7,6 +7,7 @@ public class TurretFollowFirst : MonoBehaviour {
 	private GameObject[] players;
 	private Transform target;
 	private Rigidbody rb;
+	private int numFirst;
 	public float velocidadeRotacao = 5f;
 	public int pontuacaoLimitante = 500;
 	
@@ -20,7 +21,7 @@ public class TurretFollowFirst : MonoBehaviour {
 		
 		players = GameObject.FindGameObjectsWithTag("Player");
 		
-		int numFirst = PlayerSelection.GetFirst();
+		numFirst = PlayerSelection.GetFirst();
 		
 		Debug.Log("Tamanho de scores:" + PlayerSelection.scores.Length + "   NumFirst: " + numFirst);
 		
@@ -35,6 +36,12 @@ public class TurretFollowFirst : MonoBehaviour {
 		}
 		
 		
+	}
+	
+	public bool isShooting(){
+		if(PlayerSelection.scores[numFirst] > pontuacaoLimitante)
+			return true;
+		return false;
 	}
 	
 }
