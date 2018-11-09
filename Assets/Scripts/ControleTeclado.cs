@@ -91,7 +91,7 @@ public class ControleTeclado : MonoBehaviour {
 				var shot = Instantiate(bullet, transform.position, transform.rotation);
 				shot.transform.Translate(bulletOffset);
 				shot.GetComponent<Bullet>().SetParentName(stat.name);
-				shot.GetComponent<MeshRenderer>().material.color = bulletColor;
+				shot.GetComponentInChildren<MeshRenderer>().material.color = bulletColor;
 				shot.GetComponent<Bullet>().stat = stat;
 				bulletCount--;
 				timeToNextBullet = bulletFrequency;
@@ -104,7 +104,7 @@ public class ControleTeclado : MonoBehaviour {
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
 			shot.transform.Translate(bulletOffset);
 			shot.GetComponent<Bullet>().SetParentName(stat.name);
-			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
+			shot.GetComponentInChildren<MeshRenderer>().material.color = bulletColor;
 			shot.GetComponent<Bullet>().stat = stat;
 			timeToShoot = shotDelay;
 			timeToNextBullet = bulletFrequency;

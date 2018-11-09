@@ -34,12 +34,12 @@ public class Highground : MonoBehaviour {
 			timeToPoint += delayPoint;
 		}
 		timeToRescue -= Time.deltaTime;
-		if(timeToRescue <= 0){
+		/*if(timeToRescue <= 0){
 			for(int i = 0; i < 4; i++){
 				if(players[i] == 0)
 					status[i].Teleporte();
 			}
-		}
+		}*/
 	}
 
 	// Player entrou no Highground
