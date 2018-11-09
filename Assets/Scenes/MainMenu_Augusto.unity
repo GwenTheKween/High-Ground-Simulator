@@ -4602,7 +4602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3764706, g: 0.4392157, b: 0.5019608, a: 0.27450982}
+  m_Color: {r: 0.3764706, g: 0.4392157, b: 0.5019608, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5725,7 +5725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3764706, g: 0.4392157, b: 0.5019608, a: 0.5882353}
+  m_Color: {r: 0.3764706, g: 0.4392157, b: 0.5019608, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6422,7 +6422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3764706, g: 0.4392157, b: 0.5019608, a: 0.27450982}
+  m_Color: {r: 0.3764706, g: 0.4392157, b: 0.5019608, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6682,22 +6682,17 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Soldados! O planeta esta prestes a explodir. Resgate esta chegando, mas
-    o espaco eh limitado, e apenas os mais valorosos serao resgatados.
-
-
-    Permaneca na plataforma elevada por 30 segundos para ser transportado para a nave.
-
-
-    Cuidados com as torres de defesa, que  estao atirando descontroladamente. Se necessario,
-    usem os escudos para sobreviver, mas nao esquecam, a unica carga deles dura 2
-    segundos.'
+  m_Text: "-Tiro: Balas b\xE1sicas e r\xE1pidas com pequeno tempo de recarga\r\n\r\n-Granada:
+    Ataque em \xE1rea explosivo com m\xE9dio tempo de recarga\r\n\r\n-Invulnerabilidade:
+    Escudo tempor\xE1rio de uso \xFAnico por vida\r\n\r\nPontua\xE7\xE3o\r\n B\xF4nus:\r\n
+    -Matar com tiros b\xE1sicos\r\n -Domina\xE7\xE3o de High Ground\r\n Puni\xE7\xE3o:\r\n
+    -Morte"
 --- !u!222 &1689085014
 CanvasRenderer:
   m_ObjectHideFlags: 0
