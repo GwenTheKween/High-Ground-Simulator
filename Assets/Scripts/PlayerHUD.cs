@@ -33,7 +33,7 @@ public class PlayerHUD : MonoBehaviour {
 			object_first.SetActive(false);
 		}
 
-		Debug.Log(position);
+//		Debug.Log(position);
 
 		text_player_position.text = (position).ToString() + "º";
 	}

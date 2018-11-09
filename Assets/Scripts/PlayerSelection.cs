@@ -20,9 +20,9 @@ public static class PlayerSelection {
 		int[] tmp = (int[]) PlayerSelection.scores.Clone();
 		Array.Sort(tmp);
 
-		Debug.Log("player = " + (player-1));
-		Debug.Log("score = " + scores[player-1]);
-		Debug.Log("score = " + tmp[player-1]);
+//		Debug.Log("player = " + (player-1));
+//		Debug.Log("score = " + scores[player-1]);
+//		Debug.Log("score = " + tmp[player-1]);
 
 		for(int i = scores.Length - 1; i >= 0; i--){
 			if(scores[player-1] == tmp[i])

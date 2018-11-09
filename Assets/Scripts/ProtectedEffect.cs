@@ -12,7 +12,7 @@ public class ProtectedEffect : MonoBehaviour {
 
 	void Update(){
 		timeToDestroy -= Time.deltaTime;
-		if (timeToDestroy <= 0)
+		if (timeToDestroy <= 0.1)
 			GetComponent<Animation>().Play("InvulnerabilityFadeOut");
 	}
 	public void Destruction(){
