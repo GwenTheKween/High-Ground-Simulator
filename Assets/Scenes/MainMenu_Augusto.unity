@@ -6286,7 +6286,7 @@ MonoBehaviour:
   mainMenu: {fileID: 1128469840}
   controller: 0
   fail: {fileID: 1920988297}
-  minimum: 1
+  minimum: 2
 --- !u!114 &1587598892
 MonoBehaviour:
   m_ObjectHideFlags: 0

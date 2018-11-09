@@ -28,8 +28,8 @@ public class MenuCommands : MonoBehaviour {
 				AS.Pause();
 			}
 			else {
-				Hide();
 				AS.UnPause();
+				Hide();
 			}
 		}
 		if (endPanel.activeSelf){
@@ -40,6 +40,11 @@ public class MenuCommands : MonoBehaviour {
 
 	public void Pause () {
 		Time.timeScale = 0;
+	}
+
+	public void UnPause() {
+		AS.UnPause();
+		Hide();
 	}
 	
 	public void Hide(){
