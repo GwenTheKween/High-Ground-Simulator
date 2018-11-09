@@ -33,7 +33,13 @@ public class Bullet : MonoBehaviour {
 
 	// Colisão
 	void OnTriggerEnter(Collider other){
-		if(other.gameObject.name != parentName && other.gameObject.tag != "Region" && other.gameObject.tag != "Bullet"
+		var tmp = other.gameObject.GetComponent<PlayerStatus>();
+
+		if(tmp != null && tmp.name == parentName){
+			return;
+		}
+
+		if(other.gameObject.tag != "Region" && other.gameObject.tag != "Bullet"
 												&& other.gameObject.tag != "MapLimit"){
 			Destroy(this.gameObject);
 			var particles = Instantiate(destroyParticle,transform.position,Quaternion.identity);

@@ -1179,10 +1179,10 @@ MonoBehaviour:
   bullet: {fileID: 1559832785988782, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
   bomb: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6, type: 2}
   protEffect: {fileID: 1891489911677058, guid: 7e1a0d4fa691a174e84706d22aa525a3, type: 2}
-  bulletOffset: {x: 0, y: 14, z: 25}
+  bulletOffset: {x: 0, y: 10, z: 25}
   grenadeOffset: {x: 0, y: 25, z: 15}
   bulletColor: {r: 0, g: 1, b: 0, a: 1}
-  shotDelay: 0.7
+  shotDelay: 1.2
   bulletsToShoot: 3
   bulletFrequency: 0.05
   bombDelay: 2
@@ -1207,11 +1207,11 @@ MonoBehaviour:
   moveSpeed: 120
   bullet: {fileID: 1559832785988782, guid: accc8c29b9058c6478b598e985b9d87c, type: 2}
   bomb: {fileID: 1805911928337416, guid: c301b4396fb9fad438b96da741d6a9e6, type: 2}
-  bulletOffset: {x: 0, y: 14, z: 25}
+  bulletOffset: {x: 0, y: 10, z: 25}
   grenadeOffset: {x: 0, y: 25, z: 15}
   protEffect: {fileID: 1891489911677058, guid: 7e1a0d4fa691a174e84706d22aa525a3, type: 2}
   bulletColor: {r: 0, g: 1, b: 0, a: 1}
-  shotDelay: 0.7
+  shotDelay: 1.2
   bulletsToShoot: 3
   bulletFrequency: 0.05
   bombDelay: 2

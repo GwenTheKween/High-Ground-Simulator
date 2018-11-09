@@ -139,6 +139,7 @@ public class ControleXBox : MonoBehaviour {
 
 	// Atirar com a arma
 	void Shoot(){
+
 		// Tempo entre tiros
 		if(timeToShoot > 0){
 			timeToShoot -= Time.deltaTime;
@@ -147,7 +148,7 @@ public class ControleXBox : MonoBehaviour {
 				shootSFX.Play();
 				var shot = Instantiate(bullet, transform.position, transform.rotation);
 				shot.transform.Translate(bulletOffset);
-				shot.GetComponent<Bullet>().SetParentName(this.name);
+				shot.GetComponent<Bullet>().SetParentName(stat.name);
 				shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 				shot.GetComponent<Bullet>().stat = stat;
 				bulletCount--;
@@ -161,7 +162,7 @@ public class ControleXBox : MonoBehaviour {
 			shootSFX.Play();
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
 			shot.transform.Translate(bulletOffset);
-			shot.GetComponent<Bullet>().SetParentName(this.name);
+			shot.GetComponent<Bullet>().SetParentName(stat.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			shot.GetComponent<Bullet>().stat = stat;
 			timeToShoot = shotDelay;

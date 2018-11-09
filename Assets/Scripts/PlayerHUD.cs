@@ -11,13 +11,12 @@ public class PlayerHUD : MonoBehaviour {
 	public Image image_back_border;
 	public Image image_king_border;
 	public Text text_points;
-	public Text text_player_name;
+	public Text text_player_position;
 	public GameObject object_king;
 	public GameObject object_first;
 
 	// Use this for initialization
 	void Start () {
-		text_player_name.text = "P" + player_number.ToString();
 		text_points.text = points.ToString("D7");
 		image_back_border.color = color;
 		image_king_border.color = color;
@@ -26,18 +25,17 @@ public class PlayerHUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		int max = 0;
+		int position = PlayerSelection.GetMyPosition(player_number);
 
-        for(int i = 0; i < 4; i++){
-            if(PlayerSelection.scores[i] > max) 
-				max = PlayerSelection.scores[i];
-        }
-
-		if(PlayerSelection.scores[player_number-1] == max){
-			SetFirst(true);
+		if(position == 1){
+			object_first.SetActive(true);
 		}else{
-			SetFirst(false);
+			object_first.SetActive(false);
 		}
+
+		Debug.Log(position);
+
+		text_player_position.text = (position).ToString() + "º";
 	}
 
 	// Enable the king icon
@@ -52,15 +50,6 @@ public class PlayerHUD : MonoBehaviour {
 
 	public void SetPoints(int player){
 		text_points.text = PlayerSelection.scores[player].ToString("D7");
-	}
-
-    public void SetName(string name)
-    {
-        text_player_name.text = name;
-    }
-	
-	public void SetFirst(bool first){
-		object_first.SetActive(first);
 	}
 
 	public void SetColor(Color cor){

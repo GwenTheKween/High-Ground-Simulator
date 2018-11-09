@@ -90,7 +90,7 @@ public class ControleTeclado : MonoBehaviour {
 				shootSFX.Play();
 				var shot = Instantiate(bullet, transform.position, transform.rotation);
 				shot.transform.Translate(bulletOffset);
-				shot.GetComponent<Bullet>().SetParentName(this.name);
+				shot.GetComponent<Bullet>().SetParentName(stat.name);
 				shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 				shot.GetComponent<Bullet>().stat = stat;
 				bulletCount--;
@@ -103,7 +103,7 @@ public class ControleTeclado : MonoBehaviour {
 			shootSFX.Play();
 			var shot = Instantiate(bullet, transform.position, transform.rotation);
 			shot.transform.Translate(bulletOffset);
-			shot.GetComponent<Bullet>().SetParentName(this.name);
+			shot.GetComponent<Bullet>().SetParentName(stat.name);
 			shot.GetComponent<MeshRenderer>().material.color = bulletColor;
 			shot.GetComponent<Bullet>().stat = stat;
 			timeToShoot = shotDelay;

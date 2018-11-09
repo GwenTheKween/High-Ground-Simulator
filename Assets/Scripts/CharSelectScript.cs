@@ -6,7 +6,6 @@ using XboxCtrlrInput;
 
 public class CharSelectScript : MonoBehaviour {
 
-    
     public XboxController controller;
     public RenderTexture[] texs;
     public string[] names;
@@ -36,41 +35,6 @@ public class CharSelectScript : MonoBehaviour {
         if (PlayerSelection.scores == null) PlayerSelection.scores = new int[4];
         PlayerSelection.chars[playerNum] = -1;
         PlayerSelection.scores[playerNum] = 0;
-
-        if (!didQueryNumOfCtrlrs)
-        {
-
-            didQueryNumOfCtrlrs = true;
-
-            int queriedNumberOfCtrlrs = XCI.GetNumPluggedCtrlrs();
-
-            if (queriedNumberOfCtrlrs == 1)
-            {
-                Debug.Log("Só um controle Xbox conectado.");
-            }
-            else if (queriedNumberOfCtrlrs == 0)
-            {
-                Debug.Log("Não há controles Xbox conectados");
-            }
-            else
-            {
-                Debug.Log(queriedNumberOfCtrlrs + " controles Xbox conectados.");
-            }
-
-            XCI.DEBUG_LogControllerNames();
-
-            // This code only works on Windows
-            if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
-            {
-                Debug.Log("Apenas em Windows:: Algum controle conectado: " + XCI.IsPluggedIn(XboxController.Any).ToString());
-
-                Debug.Log("Apenas em Windows:: Controle 1 conectado: " + XCI.IsPluggedIn(XboxController.First).ToString());
-                Debug.Log("Apenas em Windows:: Controle 2 conectado: " + XCI.IsPluggedIn(XboxController.Second).ToString());
-                Debug.Log("Apenas em Windows:: Controle 3 conectado: " + XCI.IsPluggedIn(XboxController.Third).ToString());
-                Debug.Log("Apenas em Windows:: Controle 4 conectado: " + XCI.IsPluggedIn(XboxController.Fourth).ToString());
-            }
-        }
-
     }
 
     // Update is called once per frame
@@ -80,8 +44,7 @@ public class CharSelectScript : MonoBehaviour {
         // Movimento no analógico esquerdo
         var leftX = XCI.GetAxis(XboxAxis.LeftStickX, controller);
 
-        if (!pressed && (leftX != 0) && !chosen)
-        {
+        if (!pressed && (leftX != 0) && !chosen) {
             pressed = true;
             if (leftX > 0) selected = (selected + 1) % texs.Length;
             else selected = (selected + texs.Length - 1) % texs.Length;
@@ -90,19 +53,16 @@ public class CharSelectScript : MonoBehaviour {
         }
         else if (pressed && leftX == 0 && !chosen) { 
             pressed = false;
-        }else if (!chosen && XCI.GetButton(XboxButton.Start,controller))
-        {
+        }else if (!chosen && XCI.GetButtonDown(XboxButton.X,controller)) {
             PlayerSelection.chars[playerNum] = selected;
 			PlayerSelection.count++;
             chosen = true;
             Panel.SetActive(true);
-        }else if(chosen && XCI.GetButton(XboxButton.B, controller))
-        {
+        }else if(chosen && XCI.GetButtonDown(XboxButton.X, controller)) {
             PlayerSelection.chars[playerNum] = -1;
 			PlayerSelection.count--;
             chosen = false;
             Panel.SetActive(false);
         }
-
     }
 }

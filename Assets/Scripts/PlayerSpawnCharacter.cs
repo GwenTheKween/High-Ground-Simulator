@@ -23,7 +23,6 @@ public class PlayerSpawnCharacter : MonoBehaviour{
                 );
             pref.GetComponent<ControleXBox>().setController(controller);
             var tmpHUD = HUD.GetComponent<PlayerHUD>();
-            tmpHUD.SetName((playerNum+1).ToString());
             tmpHUD.SetColor(prefabs[PlayerSelection.chars[playerNum]].GetComponent<ControleXBox>().bulletColor);
             pref.GetComponent<PlayerStatus>().SetHUD(HUD.GetComponent<PlayerHUD>());
             pref.GetComponent<PlayerStatus>().SetName(playerNum);
